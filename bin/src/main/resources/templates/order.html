@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Nest</title>
+<link th:replace="fragments/new_source :: head"></link>
+<link rel="stylesheet" th:href="@{/css/order.css}">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link
+	href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<div th:replace="fragments/new_header :: header"></div>
+
+	<section class="about-banner relative">
+		<div class="overlay overlay-bg"></div>
+		<div class="container">
+			<div class="row d-flex align-items-center justify-content-center">
+				<div class="about-content col-lg-12">
+					<div class="process-container"
+						style="text-align: center; font-size: 20px;">
+						<ul class="process-steps"
+							style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
+							<li
+								style="flex-grow: 0.05; display: flex; align-items: center; margin: 10px;">
+								<div class="process_info_bg"
+									style="padding: 10px; border-radius: 5px; background-color: #f8b600; color: rgba(34, 34, 34, 0.9)">
+									填寫旅客資訊</div>
+							</li>
+							<li><i class="fas fa-angle-double-right"
+								style="font-size: 36px"></i></li>
+
+							<li
+								style="flex-grow: 0.05; display: flex; align-items: center; margin: 10px;">
+								<div class="process_bg"
+									style="padding: 10px; border-radius: 5px; background-color: #c7c4c4;">
+									訂單成立/信用卡付款</div>
+							</li>
+							<li><i class="fas fa-angle-double-right"
+								style="font-size: 36px"></i></li>
+							<li
+								style="flex-grow: 0.05; display: flex; align-items: center; margin: 10px;">
+								<div class="process_bg"
+									style="padding: 10px; border-radius: 5px; background-color: #c7c4c4; width: 100px;">結帳</div>
+							</li>
+							<li><i class="fas fa-angle-double-right"
+								style="font-size: 36px"></i></li>
+							<li
+								style="flex-grow: 0.05; display: flex; align-items: center; margin: 10px;">
+								<div class="process_bg"
+									style="padding: 10px; border-radius: 5px; background-color: #c7c4c4;">完成訂購</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<div class="container_bg row">
+		<div class="col_left; border:4px solid yellow;">
+			<div class="container_all" id="container_all"
+				style="width: 80%; padding: 20px; font-size: 18px;">
+				<h3>行程總覽</h3>
+				<hr style="border: none; border-top: 5px solid #132953;">
+			</div>
+
+
+			<!-- <h4 style="margin-left: 10%; font-size: larger; margin:5% 0 2% 10%;">您的機票</h4>  -->
+			<div class="container_notice mt-3 align-items-center"
+				style="min-height: 15vh;">
+				<div class="order_align-items-center">
+					<div class="order_notice_group" style="margin: 5px 0 0 10px;">
+						<div class="order_mb-2" style="margin: 5px 5px 0 0;">
+							<span class="material-symbols-outlined" style="font-size: 68px;">campaign</span>
+						</div>
+						<div class="text-center" style="margin: 15px 5px 0 10px;">
+							<h3>出票時間</h3>
+							<p>付款成功後，將於4天內出票。</p>
+						</div>
+					</div>
+					<div class="order_notice_group" style="margin: 5px 0 0 10px;">
+						<div class="order_mb-2" style="margin: 5px 10px 0 0;">
+							<span class="material-symbols-outlined" style="font-size: 68px;">flight_takeoff</span>
+						</div>
+						<div class="text-center" style="margin: 15px 20px 0 10px;">
+							<h3>行前須知</h3>
+							<p>
+								<a href="#" id="view_details">查看詳情</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="order_myModal" class="order_modal">
+				<div class="order_modal_content">
+					<div>
+						<span class="order_close">&times;</span>
+					</div>
+					<div>
+						<h3>行前須知</h3>
+					</div>
+					<div>
+						<div>
+							<h4>出票時間</h4>
+							<p>付款成功後，將於4天內出票。</p>
+						</div>
+						<div>
+							<h4>依序使用機票</h4>
+							<p>根據航空公司規定，您訂的機票必須依照航程順序使用。若未能依序使用，
+								則機票、燃油附加費及政府稅項，均將依據實際航程重新計算。 如果重新計算的金額超過您已支付的機票金額，
+								您將須支付價差。此外，機票上任何未使用的航段均將失效且無法使用。最終結果取決於營運業者。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row container_notice"
+				style="padding: 20px 20px 20px 60px; margin: 5% 10%; gap: 70px;">
+				<div class="col_ticket">
+					行李限額
+					<h5 style="padding-top: 5%;">
+						<span class="material-symbols-outlined"
+							style="vertical-align: middle;">checked_bag</span>手提行李：1 x 7 公斤
+					</h5>
+					<h5 style="padding-top: 5%;">
+						<span class="material-symbols-outlined"
+							style="vertical-align: middle;">luggage</span>托運行李：1 件
+					</h5>
+				</div>
+				<div class="col_ticket">
+					政策
+					<h5 style="padding-top: 6%;">部分無法退款</h5>
+					<h5 style="padding-top: 7%;">更改費用：NT$7,352</h5>
+				</div>
+			</div>
+
+
+
+			<div class="container_all" style="margin-top: 5%;">
+				<h4>主要旅客資訊</h4>
+				<hr>
+				<div id="passenger_container">
+					<div class="form_section" style="color: black; font-size: 14px">
+						<div style="color: black; font-weight: bold; font-size: 16px">旅客1&times;(成人票)</div>
+						<div class="container_info">
+							<form class="mt-3">
+								<!-- 姓氏和名字 -->
+								<div class="row mb-3">
+									<div class="col-md-6">
+										<label for="lastname" class="form-label">姓氏：</label> <input
+											type="text" id="lastname" name="lastname" placeholder="英文姓氏"
+											class="form-control">
+									</div>
+									<div class="col-md-6">
+										<label for="firstname" class="form-label">名字：</label> <input
+											type="text" id="firstname" name="firstname"
+											placeholder="英文名字" class="form-control">
+									</div>
+								</div>
+
+								<!-- 性別、出生日期、證件號碼 -->
+								<div class="row mb-3">
+									<div class="col-md-3">
+										<label for="gender" class="form-label">性別：</label> <select
+											id="gender" name="gender" class="form-select w-100">
+											<option value="male">男性</option>
+											<option value="female">女性</option>
+										</select>
+									</div>
+									<div class="col-md-5 ">
+										<label for="dob" class="form-label">出生日期：</label> <input
+											type="date" id="dob" name="dob" class="form-control">
+									</div>
+									<div class="col-md-4">
+										<label for="idnumber" class="form-label">證件號碼：</label> <input
+											id="idnumber" name="idnumber" type="text"
+											class="form-control">
+									</div>
+								</div>
+
+								<!-- 國籍、證件類型、證件有效日期 -->
+								<div class="row mb-3">
+									<div class="col-md-3">
+										<label for="country" class="form-label">國籍：</label> <select
+											id="country" name="country" class="form-control w-100">
+											<option value="tw">台灣</option>
+											<option value="us">美國</option>
+											<option value="cn">中國</option>
+											<option value="jp">日本</option>
+											<option value="kr">韓國</option>
+											<option value="fr">法國</option>
+											<option value="de">德國</option>
+											<option value="gb">英國</option>
+											<option value="it">義大利</option>
+											<option value="es">西班牙</option>
+											<option value="in">印度</option>
+											<option value="br">巴西</option>
+											<option value="au">澳洲</option>
+											<option value="ca">加拿大</option>
+											<option value="ru">俄羅斯</option>
+											<option value="za">南非</option>
+											<option value="mx">墨西哥</option>
+											<option value="ar">阿根廷</option>
+											<option value="nl">荷蘭</option>
+											<option value="se">瑞典</option>
+											<option value="ch">瑞士</option>
+											<option value="sg">新加坡</option>
+										</select>
+									</div>
+									<div class="col-md-4">
+										<label for="idtype" class="form-label">證件類型：</label> <select
+											id="idtype" name="idtype" class="form-select">
+											<option value="passport">護照</option>
+											<option value="chinaId">台胞證（台灣居民來往大陸通行證）</option>
+										</select>
+									</div>
+									<div class="col-md-5">
+										<label for="dop" class="form-label">證件有效日期至：</label> <input
+											type="date" id="dop" name="dop" class="form-control">
+									</div>
+								</div>
+							</form>
+						</div>
+						<hr class="border border-1 border-dashed">
+						<div class="fw-bold text-dark mt-3"
+							style="display: flex; flex-direction: column; gap: 0.4vh;">
+							<h5>來自港澳台之乘客需要同時攜帶回鄉證／台胞證和護照。</h5>
+							<h5>請確保您輸入的姓名與辦理登機時使用的證件上的姓名一致</h5>
+							<h5>
+								為確保您的旅程順利，請確保乘客的旅遊文件 <span class="text-danger">由旅程完結日起至少6個月內有效</span>
+							</h5>
+							<h5>確認後，訂單將無法更改。如果您的姓名有誤，您可能無法登機並將被收取取消費用。</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<h4
+					style="margin: 5% 10% 2% 10%; font-weight: bold; font-size: 20px;">行李資訊</h4>
+				<div id="luggage_container">
+					<div class="luggageform_section">
+						<div
+							style="margin: 10px auto; width: 80%; font-weight: bold; font-size: 16px; color: black">旅客1&times;
+							行李:</div>
+						<div class="container_luggage">去程(已包含的行李)</div>
+						<div class="container_lg">
+							<div class="grid_luggage">
+								<div class="grid_luggage_text">
+									<h5>個人物品</h5>
+								</div>
+								<div class="grid_luggage_text">
+									<h5>
+										手提行李<br>(50*40*25公分)
+									</h5>
+								</div>
+								<div class="grid_luggage_text">
+									<h5>
+										托運行李<br>
+									</h5>
+								</div>
+							</div>
+
+							<div class="row align-items-center">
+								<div class="col-md-4 d-flex justify-content-center">
+									<span class="material-symbols-outlined"
+										style="font-size: 60px;">personal_bag</span>
+								</div>
+								<div class="col-md-4 d-flex justify-content-center">
+									<span class="material-symbols-outlined"
+										style="font-size: 60px;">checked_bag</span>
+								</div>
+								<div class="col-md-4 d-flex justify-content-center">
+									<span class="material-symbols-outlined"
+										style="font-size: 60px;">luggage</span>
+								</div>
+							</div>
+
+							<div class="row align-items-center mt-4 mb-2">
+								<div class="col-md-4 d-flex justify-content-center">
+									<h5>1件</h5>
+								</div>
+								<div class="col-md-4 d-flex justify-content-center">
+									<h5>1件，共7公斤</h5>
+								</div>
+								<div class="col-md-4 d-flex justify-content-center">
+									<h5>1件，共23公斤</h5>
+								</div>
+							</div>
+
+							<div class="luggage_remind">請聯繫航空公司了解詳細的行李尺寸規定</div>
+
+							<label for="add_luggage_1" style="padding-top: 20px;"> <select
+								name="addLg_1" id="add_luggage_1" class="label_addluggage">
+									<option value="add_lg">加購行李</option>
+									<option value="non_lg">無額外行李</option>
+									<option value="one_lg">1件，共20公斤&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;NT$1,224
+									</option>
+									<option value="two_lg">2件，共40公斤&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;NT$1,698
+									</option>
+									<option value="three_lg">3件，共60公斤&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;NT$2,171
+									</option>
+							</select>
+							</label>
+						</div>
+
+						<div class="container_luggage">回程(已包含的行李)</div>
+						<div class="container_lg" style="margin-bottom: 5%;">
+							<div class="grid_luggage">
+								<div class="grid_luggage_text">
+									<h5>
+										個人物品<br>
+									</h5>
+								</div>
+								<div class="grid_luggage_text">
+									<h5>
+										手提行李<br>(50*40*25公分)
+									</h5>
+								</div>
+								<div class="grid_luggage_text">
+									<h5>
+										托運行李<br>
+									</h5>
+								</div>
+							</div>
+
+							<div class="row align-items-center">
+								<div class="col-md-4 d-flex justify-content-center">
+									<span class="material-symbols-outlined"
+										style="font-size: 60px;">personal_bag</span>
+								</div>
+								<div class="col-md-4 d-flex justify-content-center">
+									<span class="material-symbols-outlined"
+										style="font-size: 60px;">checked_bag</span>
+								</div>
+								<div class="col-md-4 d-flex justify-content-center">
+									<span class="material-symbols-outlined"
+										style="font-size: 60px;">luggage</span>
+								</div>
+							</div>
+
+							<div class="row align-items-center mt-4 mb-3">
+								<div class="col-md-4 d-flex justify-content-center">
+									<h5>1件</h5>
+								</div>
+								<div class="col-md-4 d-flex justify-content-center">
+									<h5>1件，共7公斤</h5>
+								</div>
+								<div class="col-md-4 d-flex justify-content-center">
+									<h5>1件，共23公斤</h5>
+								</div>
+							</div>
+
+							<div class="luggage_remind">請聯繫航空公司了解詳細的行李尺寸規定</div>
+
+							<label for="add_luggage_2"> <select name="addLg_2"
+								id="add_returnluggage_2" class="label_addluggage">
+									<option value="add_lg">加購行李</option>
+									<option value="non_lg">無額外行李</option>
+									<option value="one_lg">1件，共20公斤&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;NT$1,224
+									</option>
+									<option value="two_lg">2件，共40公斤&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;NT$1,698
+									</option>
+									<option value="three_lg">3件，共60公斤&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;NT$2,171
+									</option>
+							</select>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<h4 style="margin: 5% 0 0 10%; font-size: 20px">聯繫方式</h4>
+				<div class="row container_contact" style="margin: 2% 0 2% 10%;">
+					<div class="col-md-4">
+						<input type="text" id="contact_name" name="contactName"
+							placeholder="聯繫人姓名" class="form-control">
+					</div>
+					<div class="col-md-4">
+						<input type="tel" id="contact_phone" name="contactPhone"
+							placeholder="0912456789" class="form-control">
+					</div>
+					<div class="col-md-4">
+						<input type="email" id="contact_email" name="contactEmail"
+							placeholder="123@abc.com" class="form-control">
+					</div>
+				</div>
+			</div>
+
+			<div class="container_all"
+				style="width: 80%; padding: 20px; margin-top: 50px; margin-bottom: 50px;">
+				<div
+					style="display: flex; justify-content: space-between; align-items: center; width: 80%; margin: 0 auto;">
+					<div style="text-align: left; font-size: 20px; font-weight: bold">總計:</div>
+					<div id="main_ticket_price"
+						style="font-size: 24px; color: red; text-align: right;">NT$
+						9,999</div>
+				</div>
+
+				<div style="display: flex; justify-content: center;">
+					<button class="style_nextstep" id="next_step">下一步</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="col_right" id="fixedblock" style="min-height: 30vh;">
+			<div class="container_right">
+				<form id="booking_form">
+					<div
+						style="font-size: 22px; margin: 20px 0 20px 10px; color: black; font-weight: bold;">價格詳情</div>
+					<div style="margin: 10px 10px;">
+						<div
+							style="display: flex;flex-direction:column; justify-content: space-between; margin: 10px 0;gap:1vh;">
+							<h4 id="ticket_people"></h4>
+							<h4 id="ticket_price" name="ticket_price"></h4>
+						</div>
+
+
+						<h4 style="margin: 20px 0 10px 0;">行李</h4>
+						<div class="container_right_small_text"
+							style="display: flex; justify-content: space-between;">
+							<p>個人物品</p>
+							<p>免費</p>
+						</div>
+
+						<div class="container_right_small_text"
+							style="display: flex; justify-content: space-between;">
+							<p>手提行李</p>
+							<p>免費</p>
+						</div>
+
+						<div class="container_right_small_text"
+							style="display: flex; justify-content: space-between;">
+							<p>托運行李</p>
+							<p id="price_luggage">免費</p>
+						</div>
+
+						<hr style="border: 1px dashed; margin: 5px 0;">
+						<div style="display: flex; justify-content: space-between;">
+							<h4 style="padding: 20px 0;">總額</h4>
+							<h4 id="price_total" style="padding: 20px 0 0 0;">Total</h4>
+							<input type="hidden" id="final_price" name="final_price">
+						</div>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+	<div th:replace="fragments/new_footer :: footer"></div>
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/superfish/1.7.9/js/superfish.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+	<!-- GSAP -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+	<!-- ScrollTrigger 插件 -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+	<script src="/js/order.js"></script>
+</body>
+
+
+</html>

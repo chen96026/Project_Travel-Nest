@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-TW" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Mail Templates</title>
+</head>
+<body>
+    <main style="width: 80%; margin: 0 auto;">
+        <div>
+            <p style="font-size:16px;">
+                感謝您的來信，我們已經收到您在 Travel Nest 官網填寫的表單資訊<span th:text="'(No. ' + ${id}+')'"></span>
+                <br>
+                   以下是我們收到的回覆
+            </p>
+            <hr>
+            <div style="color: #777; margin: 30px auto; width: 96%;">
+                <p style="font-size:14px;" th:text="'姓名：' + ${name}"></p>
+                <p style="font-size:14px;" th:text="'E-MAIL：' + ${email}"></p>
+                <p style="font-size:14px;" th:text="'連絡電話：' + ${phone}"></p>
+                <p style="font-size:14px;" th:text="'訂單編號：' + ${orderId}"></p>
+                <p style="font-size:14px;" th:text="'意見類別：' + ${category}"></p>
+                <p style="font-size:14px;">問題與建議：</p>
+                <p style="font-size:14px;" th:utext="${content}"></p>
+            </div>
+            <hr>
+            <p style="font-size:16px">
+                敝公司客服將會確認過您寄送的內容後回信給您，請您稍候片刻。
+                <br>
+                若有任何問題，歡迎您隨時再透過 <a href="http://localhost:8080/contact">官網表單</a> 與我們聯繫</p>
+            <p style="font-size:16px">客服在線時間：週一至週五，09:00~18:00 例假日休息</p>
+        </div>
+        <hr>
+        <p style="color: red; font-size:16px;">此為系統自動發送信件，請勿直接回覆</p>
+    </main>
+</body>
+</html>

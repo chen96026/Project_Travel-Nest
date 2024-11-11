@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Travel Nest</title>
+<link rel="stylesheet" href="/css/member_reg&log.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+	integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+
+<body>
+	
+	<section class="member_login_container">
+		<div class="member_login_left-side">
+			<div class="member_login_logo-container">
+				<a href="/homepage"><img src="/img/登入_logo.png" alt="Ruix Logo" class="member_login_logo" id="member_login_logo"></a>
+			</div>
+			<h1>Welcome TRAVEL NEST</h1>
+			<h3>登入會員</h3>
+			<br>
+			
+			<div class="member_group_button">
+				<button class="member_google-btn" id="member_login_google_button">
+					<img
+						src="https://www.gstatic.com/images/branding/product/1x/gsa_64dp.png"
+						alt="Google Logo" class="member_google-logo"> 使用 Google 登入
+				</button>
+				<button class="member_line-btn" id="member_login_line_button">
+					<img
+						src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg"
+						alt="Line Logo" class="member_line-logo"> 使用 LINE 登入
+				</button>
+			</div>
+
+			<p class="member_login_or-text">或</p>
+
+			<form>
+				<div class="member_login_eyes">
+					<input type="email" id="member_login_Email" placeholder="信箱"
+						class="member_login_input-field">
+				</div>
+
+				<div class="member_login_eyes">
+					<input type="password" id="member_login_Password" placeholder="密碼"
+						class="member_login_input-field"> <i
+						class="fas fa-eye-slash" id="member_eyes_Password_first"></i>
+				</div>
+
+				<div class="member_login_remember-me">
+					<input type="checkbox" id="rememberMe"> <label
+						for="remember">Remember Me</label>
+				</div>
+				<button id="member_login_login-btn" onclick="login()">登入</button>
+			</form>
+
+			<p id="member_login_login-link">
+				還不是會員嗎? <a href="/register">註冊</a>
+			</p>
+		</div>
+
+		<div class="member_image-container">
+			<div class="member_register_right-side">
+				<img src="./img/登入頁_日本.jpg" alt="Design Image" class="member_register_design-image image-1 active"> 
+				<img src="./img/登入頁_希臘.jpg" alt="Design Image" class="member_register_design-image image-2" />
+				<img src="./img/登入頁_洛杉磯.jpg" alt="Design Image" class="member_register_design-image image-2" />
+				<img src="./img/登入頁_瑞典.jpg" alt="Design Image" class="member_register_design-image image-2" />
+				<img src="./img/登入頁_加拿大.jpg" alt="Design Image" class="member_register_design-image image-2" />
+			</div>
+		</div>
+
+	</section>
+</body>
+<script src="/js/new_login.js"></script>
+<script src="/js/thirdParty/func_googleLogin.js" type="module"></script>
+<script src="/js/thirdParty/func_lineLogin.js" type="module"></script>

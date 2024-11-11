@@ -1,0 +1,171 @@
+/* 
+    排名國家圖片：360*210
+    新聞圖片：960*640
+*/
+/* 航班搜尋表單 */
+.banner-right .form-wrap {
+	padding: 30px;
+}
+
+/* 航班搜尋表單欄位標題 */
+.Hp_formTitle {
+	text-align: start;
+	margin: 5px 0;
+}
+
+/* 航班搜尋表單輸入框 */
+.banner-right .form-wrap .form-control {
+	border-color: rgb(163, 163, 163);
+}
+
+/* 航班選擇艙等 */
+.choose_type {
+	margin-top: 25px;
+	margin-bottom: 15px;
+	margin-left: 10px;
+	text-align: start;
+	gap: 30px;
+}
+
+/* 區塊標題的副標題 */
+.text-center>p {
+	font-size: 16px;
+}
+
+/* 新聞區塊 */
+.home-about-area {
+	background-color: #f9f9ff;
+	display: flex;
+}
+
+/* 新聞選擇的左右箭頭 */
+.Hp_prev, .Hp_next {
+	color: black;
+	font-weight: bold;
+	font-size: 20px;
+	border-radius: 5px;
+	height: 26px;
+	width: 26px;
+	padding: 3px;
+	text-align: center;
+	margin: auto 5px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.Hp_prev:hover, .Hp_next:hover {
+	color: rgb(143, 143, 143);
+}
+
+/* 新聞個別文章 */
+.container-fluid {
+	display: none;
+}
+
+/* 新聞的標題和簡略文章 */
+.home-about-area .home-about-left h1 {
+	height: 90px;
+	display: flex;
+	align-items: center;
+}
+
+.home-about-area .home-about-left p {
+	white-space: pre-wrap;
+	font-size: 18px;
+	height: 230px;
+}
+
+/* 切換新聞的特效 */
+.Hp_fade {
+	animation-name: fadePoster;
+	animation-duration: 1.5s;
+}
+
+@keyframes fadePoster {from { opacity:.4
+	
+}
+
+to {
+	opacity: 1
+}
+
+}
+
+/* blog icon */
+.owl-carousel .owl-item .HpBlogIcon {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	display: inline-block;
+	margin-right: 10px;
+}
+/* blog img */
+.thumb>.HpBlogImg {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+/* blog img 容器 */
+.single-recent-blog-post>.thumb {
+	max-width: 360px;
+	height: 360px;
+	background-color: #dddddd;
+}
+
+.tags {
+	max-height: 50px; /* 設定容器的最大高度，超出部分會隱藏 */
+}
+
+.tags>ul {
+	display: flex;
+	flex-wrap: wrap; /* 允許標籤自動換行 */
+	gap: 10px; /* 設定標籤之間的間距 */
+}
+
+/* blog text */
+.HpBlogText {
+	max-height: 200px;
+	overflow: hidden; /* 超出內容隱藏 */
+	display: -webkit-box; /* 使用 flexbox 的變體 */
+	-webkit-box-orient: vertical; /* 設定為垂直方向排列 */
+	-webkit-line-clamp: 3; /* 限制最多顯示 4 行內容，根據需求調整 */
+	text-overflow: ellipsis; /* 超過限制行數後顯示省略號 */
+	white-space: normal; /* 允許內容換行 */
+	word-wrap: break-word; /* 長單詞或網址允許換行 */
+}
+
+.HpBlogTags {
+	max-height: 34px;
+	overflow: hidden; 
+}
+
+.suggestions {
+    position: absolute;
+    top: 100%; /* 放在輸入框下方 */
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    z-index: 10;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none; /* 初始隱藏 */
+}
+
+.suggestions div {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.suggestions div:hover, .suggestions .active {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+/* 確保每個 autocomplete 容器是相對定位的 */
+.autocomplete {
+    position: relative;
+    width: 100%;
+}

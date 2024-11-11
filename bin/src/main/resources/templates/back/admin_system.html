@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>後台系統</title>
+    <link rel="stylesheet" href="/css/admin_system.css" />
+    <link rel="stylesheet" href="/css/bootstrap.css">
+	<link th:replace="fragments/new_source :: head"></link>
+	<link th:replace="fragments/new_header :: head"></link>
+	<link th:replace="fragments/new_footer :: head"></link>
+	<link rel="stylesheet" href="/css/member_page.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+</head>
+
+<body>
+<div th:replace="fragments/new_header :: header"></div>
+    <main class="Backstage_main">
+        <div id="Backstage_LeftSide">
+        </div>
+        <div class="Backstage_MiddleSide">
+        </div>
+    </main>
+<div th:replace="fragments/new_footer :: footer"></div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="/js/admin_system.js" type="module"></script>
+
+</html>

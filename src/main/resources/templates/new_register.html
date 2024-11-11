@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Travel Nest</title>
+<link rel="stylesheet" href="/css/member_reg&log.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+	integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+	<div class="member_register_container">
+		<div class="member_register_left-side">
+			<div class="member_register_logo-container">
+				<a href="/homepage"><img src="/img/登入_logo.png" alt="Ruix Logo" class="member_register_logo"></a>
+			</div>
+			<h1>Welcome TRAVEL NEST</h1>
+			<h3>註冊會員</h3>
+			<br>
+
+			<form id="registerForm">
+
+				<div class="member_register_eyes">
+					<input type="email" id="member_register_Email"
+						placeholder="請輸入有效的信箱" class="member_register_input-field"
+						onblur="checkEmail()"
+						pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$"
+						required>
+					<div id="member_check_group">
+						<span id="emailStatusIcon"></span><span id="checkEmail"></span>
+					</div>
+				</div>
+
+				<div class="member_register_eyes">
+					<input type="password" id="member_register_Password"
+						placeholder="請輸入密碼" class="member_register_input-field" required>
+					<i class="fas fa-eye-slash" id="member_eyes_Password_first"></i>
+				</div>
+
+				<div class="member_register_eyes">
+					<input type="password" id="member_register_confirmPassword"
+						placeholder="請確認密碼" class="member_register_input-field"> <i
+						class="fas fa-eye-slash" id="member_eyes_Password_second"></i> <span
+						id="member_passwordMatchIcon"></span>
+				</div>
+
+				<button id="member_register_register-btn" type="submit">註冊</button>
+			</form>
+
+			<p id="member_register_login-link">
+				已經是會員了嗎? <a href="/login">登入</a>
+			</p>
+		</div>
+
+		<div class="member_image-container">
+			<div class="member_register_right-side">
+				<img src="./img/登入頁_日本.jpg" alt="Design Image" class="member_register_design-image image-1 active"> 
+				<img src="./img/登入頁_希臘.jpg" alt="Design Image" class="member_register_design-image image-2" />
+				<img src="./img/登入頁_洛杉磯.jpg" alt="Design Image" class="member_register_design-image image-2" />
+				<img src="./img/登入頁_瑞典.jpg" alt="Design Image" class="member_register_design-image image-2" />
+				<img src="./img/登入頁_加拿大.jpg" alt="Design Image" class="member_register_design-image image-2" />
+			</div>
+		</div>
+
+	</div>
+</body>
+
+<script src="/js/new_register.js"></script>
+</html>

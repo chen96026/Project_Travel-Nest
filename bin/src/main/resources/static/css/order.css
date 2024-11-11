@@ -1,0 +1,605 @@
+body {
+	background-color: #F1F1F1;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+hr {
+	margin: 1rem 0;
+	border: 0;
+	border-top: solid;
+	opacity: .25;
+}
+
+.process-container {
+	width: 80%;
+	margin-left: 9.5%;
+	border-radius: 10px;
+}
+
+.process_bg {
+	display: block;
+	background-color: rgb(173, 171, 171);
+	border-radius: 10px;
+	padding: 10px;
+	color: white;
+	font-weight: bold;
+}
+
+.process_info_bg {
+	display: block;
+	background-color: #132953;
+	border-radius: 10px;
+	padding: 10px;
+	color: white;
+	font-weight: bold;
+}
+
+.container_all {
+	width: 80%;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: white;
+	border: 2px solid transparent;
+	border-top: 2px solid rgba(34, 34, 34, 0.9);
+	border-bottom: 2px solid rgba(34, 34, 34, 0.9);
+}
+
+.container_bg {
+	margin-top: 3vh;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.container_notice {
+	width: 80%;
+	margin: 0 auto;
+	padding: 10px;
+	background-color: rgba(221, 221, 221, 0.9);
+	display: flex;
+	color: black;
+}
+
+.order_align-items-center {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.order_notice_group {
+	display: flex;
+	justify-content: center;
+	margin-left: 2vw;
+}
+
+.text-center {
+	display: flex;
+	flex-direction: column;
+	align-items: star;
+	justify-content: center;
+	gap: 0.5vh;
+}
+
+.text-center h3 {
+	display: flex;
+	align-items: flex-start;
+}
+
+.text-center p {
+	font-size: 0.75vw;
+	color: black;
+	font-weight: 400;
+	display: flex;
+	align-items: start;
+	justify-content: start;
+}
+
+.container_lg {
+	position: relative;
+	width: 80%;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: white;
+	border: 1px solid;
+}
+
+.container_luggage {
+	padding: 10px 20px;
+	width: 80%;
+	margin: 0 auto;
+	background-color: rgba(34, 34, 34, 0.9);
+	color: white;
+	border-radius: 5px;
+	font-size: 0.8vw;
+	font-weight: 400;
+}
+
+.container_contact {
+	width: 80%;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: rgba(34, 34, 34, 0.9);
+	display: flex;
+	gap: 10px;
+	justify-content: space-between;
+	border-radius: 10px;
+}
+
+.container_contact>div {
+	flex: 1;
+}
+
+.container_contactinfo {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.container_contactinfo>div, input {
+	height: 30px;
+	border-radius: 5px;
+}
+
+.form_section {
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	max-width: 100%;
+}
+
+.form_container {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+	margin-bottom: 20px;
+	max-width: 100%;
+}
+
+.container_info {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 10px;
+	max-width: 100%;
+}
+
+.container_info>form {
+	box-sizing: border-box;
+}
+
+.form_name {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+	align-items: center;
+	margin-top: 20px;
+	max-width: 100%;
+}
+
+.form_row {
+	display: grid;
+	grid-template-columns: 0.5fr 1fr 1fr;
+	gap: 15px;
+	align-items: center;
+	max-width: 100%;
+}
+
+label {
+	font-weight: bold;
+	margin-right: 10px;
+	white-space: nowrap;
+}
+
+.form_row div {
+	display: flex;
+	align-items: center;
+}
+
+#gender, #country {
+	width: 50%;
+}
+
+.container_info input, .container_info select {
+	width: 100%;
+}
+
+.container_info div {
+	margin-bottom: 10px;
+}
+
+.grid_luggage {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: auto;
+	text-align: center;
+	gap: 2.5vw;
+	margin: 0 auto;
+	padding: 10px;
+}
+
+.grid_luggage_text {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5vh;
+}
+
+.grid_luggage h5 {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	flex-direction: column;
+	gap: 10vh;
+}
+
+.grid_luggage_icon {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: auto;
+	justify-items: center;
+	align-items: center;
+	gap: 80px;
+	margin: 0 auto;
+	padding: 10px;
+	max-width: 600px;
+}
+
+.luggage_remind {
+	position: absolute;
+	top: 23vh;
+	color: gray;
+	font-weight: 400;
+	font-size: 0.8vw;
+}
+
+.box {
+	background-color: white;
+	margin: 10px;
+	height: 80%;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	border: 3px solid #ddd;
+	border-radius: 10px;
+	color: #222;
+	font-weight: 600;
+}
+
+.navBar {
+	background-color: rgba(34, 34, 34, 0.9);
+	padding: 20px;
+	display: flex;
+	align-items: flex-start;
+	text-align: center;
+}
+
+.process-steps {
+	list-style: none;
+	gap: 10px;
+}
+
+.process-steps li {
+	display: inline-block;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.col_left {
+	flex: 2;
+	padding: 0 10%;
+}
+
+.container_right {
+	width: 100%;
+	padding: 5%;
+	background-color: white;
+}
+
+.col_right {
+	padding: 5px;
+	position: fixed;
+	transform: translateX(55%);
+	bottom: 20%;
+	right: 15%;
+	width: 18%;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	box-shadow: 0 px 2px rgba(0, 0, 0, 0.1);
+	will-change: transform;
+	z-index: 1000;
+}
+
+.container_right>div {
+	margin: 1px 0;
+	/* 調整行距 */
+}
+
+.grid_items {
+	display: grid;
+	grid-template-columns: 10% 10% 30% 30% 10% 10%;
+	gap: 5px;
+}
+
+.col_ticket {
+	flex: 1;
+	padding: 10px;
+	font-size: 1.2vw;
+	font-weight: bold;
+	margin-left: 5%;
+}
+
+.col_notice_right {
+	flex: 5;
+}
+
+.col_notice_left {
+	flex: 1;
+	padding-left: 5%;
+}
+
+.label_addluggage {
+	margin-top: 0.5vh;
+	position: absolute;
+	top: 78%;
+	right: 8%; /* 距離右邊20px */
+	cursor: pointer;
+	display: block;
+	width: 13vw;
+	height: 4vh;
+	margin-left: auto;
+	font-size: 14px;
+	background-color: #f8b600;
+	border-radius: 5px;
+	font-weight: bold;
+	color: rgba(34, 34, 34, 0.9);
+	text-align: center;
+}
+
+.label_addluggage option {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
+.contact_info {
+	height: 30px;
+	text-align: center;
+	font-size: 16px;
+}
+
+.delete_btn {
+	background-color: gray;
+	color: white;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	display: none;
+	/* Hide the delete button by default */
+	margin-left: auto;
+	/* Push button to the right */
+	padding: 5px 10px;
+}
+
+.delete_btn:hover {
+	background-color: #f8b600;
+	color: white(41, 40, 40);
+	border: rgb(41, 40, 40) 2px solid;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	padding-top: 60px;
+}
+
+.modal_content {
+	background-color: #f8b600;
+	margin: 5% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+	max-width: 600px;
+	border-radius: 5px;
+}
+
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.style_nextstep {
+	width: 50%;
+	height: 40px;
+	margin-top: 5%;
+	font-size: 20px;
+	font-weight: bold;
+	background-color: rgba(34, 34, 34, 0.9);
+	border-radius: 5px;
+	border: none;
+	color: white;
+	transition: background-color 0.3s ease;
+}
+
+.style_nextstep:hover {
+	background-color: #f8b600;
+	border: none;
+	color: rgba(34, 34, 34, 0.9);
+	cursor: pointer;
+}
+
+#add_passenger:hover {
+	background-color: #f8b600;
+	color: white;
+}
+
+@media ( max-width : 992px) {
+	.form_container, .form_row {
+		grid-template-columns: 1fr;
+	}
+	.form_name {
+		flex-direction: column;
+	}
+	#gender, #country {
+		width: 100%;
+	}
+}
+
+@media ( max-width : 1200px) {
+	.form_container, .form_row {
+		grid-template-columns: 1fr;
+	}
+	.form_name {
+		flex-direction: column;
+	}
+	#gender, #country {
+		width: 100%;
+	}
+}
+
+@media ( max-width : 992px) {
+	body {
+		font-size: 14px;
+	}
+	.col_right {
+		font-size: 14px;
+	}
+	.contact_info {
+		flex: 1;
+	}
+	.grid_luggage_icon {
+		font-size: 14px;
+	}
+}
+
+.btn-custom-3d {
+	background-color: rgba(34, 34, 34, 0.9); /* 主背景顏色 */
+	color: white; /* 文字顏色 */
+	border: none; /* 去除邊框 */
+	padding: 10px 20px; /* 內邊距 */
+	font-size: 16px; /* 字體大小 */
+	border-radius: 5px; /* 圓角 */
+	transition: all 0.2s ease-in-out; /* 動畫效果 */
+}
+
+.btn-custom-3d:hover {
+	background-color: #0056b3; /* 當鼠標懸停時變暗 */
+	box-shadow: 0 2px #003d82; /* 調整陰影 */
+	transform: translateY(-2px); /* 懸浮效果 */
+}
+
+.btn-custom-3d:active {
+	background-color: #00408a; /* 點擊時的背景顏色 */
+	box-shadow: 0 0 #00408a; /* 點擊時陰影消失 */
+	transform: translateY(4px); /* 按下時按鈕向下移動 */
+}
+
+select {
+	appearance: none; /* 去掉瀏覽器預設的樣式 */
+	border: 1px solid #ced4da; /* 改變邊框 */
+	padding: 0.5rem 1rem; /* 調整內邊距 */
+	border-radius: 0.25rem; /* 圓角 */
+	font-size: 1rem; /* 調整字體大小 */
+	width: 100%; /* 設置寬度 */
+	height: 20%;
+	background-image:
+		url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-chevron-down" viewBox="0 0 24 24"%3E%3Cpath d="M6 9l6 6 6-6"/%3E%3C/svg%3E');
+	/* 自定義下拉箭頭圖標 */
+	background-position: right 0.75rem center; /* 圖標位置 */
+	background-repeat: no-repeat; /* 禁止圖標重複 */
+}
+
+.form-control {
+	height: 40px; /* 設置一致的欄高 */
+	padding: 0 10px;
+	line-height: 45px;
+	border-radius: 4px;
+}
+
+.form-select {
+	width: 80px; /* 設置一致的欄高 */
+	padding: 0 10px;
+	border-radius: 4px;
+}
+
+#view_details {
+	text-decoration: underline;
+}
+
+.order_modal {
+	display: none;
+	position: fixed;
+	z-index: 10000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.order_modal_content {
+	border: 1px solid black;
+	background-color: #fefefe;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 30vw;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	border-radius: 8px;
+	position: absolute;
+}
+
+.order_modal_content h3 {
+	margin-bottom: 2vh;
+}
+
+.order_modal_content h4 {
+	margin-bottom: 1vh;
+}
+
+.order_modal_content p {
+	color: black;
+	font-weight: 400;
+}
+
+.order_close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.order_close:hover, .order_close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.container_right_small_text {
+	color: black;
+	font-weight: 500;
+	font-size: 0.8vw;
+}

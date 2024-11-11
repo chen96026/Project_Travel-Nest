@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="no-js">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="UTF-8">
+	<title>Travel Nest</title>
+	<link th:replace="fragments/new_source :: head"></link>
+	<link rel="stylesheet" href="css/testIndex.css">
+</head>
+
+<body>
+	<div th:replace="fragments/new_header :: header"></div>
+
+	<!-- start banner Area -->
+	<section class="banner-area relative">
+		<div class="overlay overlay-bg"></div>
+		<div class="container">
+			<div class="row fullscreen align-items-center justify-content-between">
+				<div class="col-lg-6 col-md-6 banner-left">
+					<h4 class="text-white">探索異國風情</h4>
+					<h1 class="text-white">創造美妙回憶</h1>
+					<h4 class="text-white">
+						開始你夢想旅遊的第一步，挑選舒適快速且超值的航班!
+					</h4>
+					<br>
+					<button id="HpStardBtn" class="primary-btn text-uppercase">Get Started</button>
+				</div>
+				<div class="col-lg-4 col-md-6 banner-right">
+					<div class="tab-content" id="myTabContent">
+						<div class="tab-pane fade show active" id="flight" role="tabpanel" aria-labelledby="flight-tab">
+							<form class="form-wrap" id="search_form" autocomplete="off">
+								<div class="autocomplete">
+    								<h6 class="Hp_formTitle">出發地</h6>
+    								<input type="text" id="des_start" class="form-control" name="des_start"
+           									placeholder="From " onfocus="this.placeholder = ''"
+           									onblur="this.placeholder =  'From'">
+    								<div class="suggestions" id="suggestions_des_start" role="listbox"></div> <!-- 建議欄位 -->
+								</div>
+
+								<div class="autocomplete">
+    								<h6 class="Hp_formTitle">目的地</h6>
+    								<input type="text" id="des_end" class="form-control" name="des_end"
+           									placeholder="To " onfocus="this.placeholder = ''"
+           									onblur="this.placeholder =  'To'">
+    								<div class="suggestions" id="suggestions_des_end" role="listbox"></div> <!-- 建議欄位 -->
+								</div>
+								
+								<h6 class="Hp_formTitle">出發日期</h6>
+								<input type="text" id="date_start" class="form-control date-picker" name="date_start" placeholder="Start "
+								onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
+								<h6 class="Hp_formTitle">回程日期</h6>
+								<input type="text" id="date_end" class="form-control date-picker" name="date_end" placeholder="Return "
+								onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
+								<h6 class="Hp_formTitle">成年人數</h6>
+								<input type="number" id="adults" min="1" max="20" value="1" class="form-control" name="adults"
+								placeholder="Adults " onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'Adults '">
+								<h6 class="Hp_formTitle">未成年人數</h6>
+								<input type="number" id="child" min="0" max="20" value="0" class="form-control" name="child"
+									placeholder="Child " onfocus="this.placeholder = ''"
+									onblur="this.placeholder = 'Child '">
+								<div class="choose_type" style="display: flex;">
+									<label class="Hp_room"><input type="radio" name="type" value="經濟艙" checked>&nbsp;經濟艙</label>
+									<label class="Hp_room"><input type="radio" name="type" value="商務艙">&nbsp;商務艙</label>
+								</div>
+								<button class="primary-btn text-uppercase" id="search_btn" type="submit">搜尋航班</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End banner Area -->
+
+	<!-- Start popular-destination Area -->
+	<section class="popular-destination-area section-gap">
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="menu-content pb-70 col-lg-8">
+					<div class="title text-center">
+						<h1 class="mb-10">熱門景點</h1>
+						<p>我們生活在一個幸運的時代，一個容易見識不同國家、了解不同文化的時代</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="single-destination relative">
+						<div class="thumb relative">
+							<div class="overlay overlay-bg"></div>
+							<img class="img-fluid" src="img/r1.png" alt="">
+						</div>
+						<div class="desc">
+							<a href="/searchpage?des_start=台灣&des_end=日本&date_start=2024/10/29&date_end=2024/10/30&adults=1&child=0&type=經濟艙" class="price-btn">前往</a>
+							<h4>淺草雷門寺</h4>
+							<p>日本</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="single-destination relative">
+						<div class="thumb relative">
+							<div class="overlay overlay-bg"></div>
+							<img class="img-fluid" src="img/r2.png" alt="">
+						</div>
+						<div class="desc">
+							<a href="/searchpage?des_start=台灣&des_end=中國&date_start=2024/10/29&date_end=2024/10/30&adults=1&child=0&type=經濟艙" class="price-btn">前往</a>
+							<h4>東方明珠電視塔</h4>
+							<p>中國</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="single-destination relative">
+						<div class="thumb relative">
+							<div class="overlay overlay-bg"></div>
+							<img class="img-fluid" src="img/r3.png" alt="">
+						</div>
+						<div class="desc">
+							<a href="/searchpage?des_start=台灣&des_end=印尼&date_start=2024/10/29&date_end=2024/10/30&adults=1&child=0&type=經濟艙" class="price-btn">前往</a>
+							<h4>努沙杜爾海灘</h4>
+							<p>印度尼西亞</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="single-destination relative">
+						<div class="thumb relative">
+							<div class="overlay overlay-bg"></div>
+							<img class="img-fluid" src="img/r4.png" alt="">
+						</div>
+						<div class="desc">
+							<a href="/searchpage?des_start=台灣&des_end=紐西蘭&date_start=2024/10/29&date_end=2024/10/30&adults=1&child=0&type=經濟艙" class="price-btn">前往</a>
+							<h4>米爾福德峽灣</h4>
+							<p>紐西蘭</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="single-destination relative">
+						<div class="thumb relative">
+							<div class="overlay overlay-bg"></div>
+							<img class="img-fluid" src="img/r5.png" alt="">
+						</div>
+						<div class="desc">
+							<a href="/searchpage?des_start=台灣&des_end=澳洲&date_start=2024/10/29&date_end=2024/10/30&adults=1&child=0&type=經濟艙" class="price-btn">前往</a>
+							<h4>烏魯魯巨石</h4>
+							<p>澳洲</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="single-destination relative">
+						<div class="thumb relative">
+							<div class="overlay overlay-bg"></div>
+							<img class="img-fluid" src="img/r6.png" alt="">
+						</div>
+						<div class="desc">
+							<a href="/searchpage?des_start=台灣&des_end=加拿大&date_start=2024/10/29&date_end=2024/10/30&adults=1&child=0&type=經濟艙" class="price-btn">前往</a>
+							<h4>聖羅倫斯市場</h4>
+							<p>加拿大</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End popular-destination Area -->
+
+	<!-- Start news Area -->
+	<section class="home-about-area" id="HpNews"></section>
+	<!-- End news Area -->
+
+
+	<!-- Start blog Area -->
+	<section class="recent-blog-area section-gap">
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<div class="menu-content pb-60 col-lg-9">
+					<div class="title text-center">
+						<h1 class="mb-10">最新貼文</h1>
+						<p>來看看其他人分享的美好回憶，是否能觸動你心底的悸動呢?</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="active-recent-blog-carusel">
+					<div class="single-recent-blog-post item">
+						<div class="thumb">
+							<img class="HpBlogImg img-fluid" src="">
+						</div>
+						<div class="details">
+							<div class="tags">
+								<ul>
+									<div class="HpBlogTags"></div>
+								</ul>
+							</div>
+							<h4 class="HpBlogTitle title"></h4>
+							<p class="HpBlogText"></p>
+							<div>
+								<img class="HpBlogIcon" src="">
+								<span class="HpBlogAuthor"></span>
+							</div>
+							<br>
+							<h6 class="HpBlogDate date"></h6>
+						</div>
+					</div>
+					<div class="single-recent-blog-post item">
+						<div class="thumb">
+							<img class="HpBlogImg img-fluid" src="">
+						</div>
+						<div class="details">
+							<div class="tags">
+								<ul>
+									<div class="HpBlogTags"></div>
+								</ul>
+							</div>
+							<h4 class="HpBlogTitle title"></h4>
+							<p class="HpBlogText"></p>
+							<div>
+								<img class="HpBlogIcon" src="">
+								<span class="HpBlogAuthor"></span>
+							</div>
+							<br>
+							<h6 class="HpBlogDate date"></h6>
+						</div>
+					</div>
+					<div class="single-recent-blog-post item">
+						<div class="thumb">
+							<img class="HpBlogImg img-fluid" src="">
+						</div>
+						<div class="details">
+							<div class="tags">
+								<ul>
+									<div class="HpBlogTags"></div>
+								</ul>
+							</div>
+							<h4 class="HpBlogTitle title"></h4>
+							<p class="HpBlogText"></p>
+							<div>
+								<img class="HpBlogIcon" src="">
+								<span class="HpBlogAuthor"></span>
+							</div>
+							<br>
+							<h6 class="HpBlogDate date"></h6>
+						</div>
+					</div>
+					<div class="single-recent-blog-post item">
+						<div class="thumb">
+							<img class="HpBlogImg img-fluid" src="">
+						</div>
+						<div class="details">
+							<div class="tags">
+								<ul>
+									<div class="HpBlogTags"></div>
+								</ul>
+							</div>
+							<h4 class="HpBlogTitle title"></h4>
+							<p class="HpBlogText"></p>
+							<div>
+								<img class="HpBlogIcon" src="">
+								<span class="HpBlogAuthor"></span>
+							</div>
+							<br>
+							<h6 class="HpBlogDate date"></h6>
+						</div>
+					</div>
+					<div class="single-recent-blog-post item">
+						<div class="thumb">
+							<img class="HpBlogImg img-fluid" src="">
+						</div>
+						<div class="details">
+							<div class="tags">
+								<ul>
+									<div class="HpBlogTags"></div>
+								</ul>
+							</div>
+							<h4 class="HpBlogTitle title"></h4>
+							<p class="HpBlogText"></p>
+							<div>
+								<img class="HpBlogIcon" src="">
+								<span class="HpBlogAuthor"></span>
+							</div>
+							<br>
+							<h6 class="HpBlogDate date"></h6>
+						</div>
+					</div>
+					<div class="single-recent-blog-post item">
+						<div class="thumb">
+							<img class="HpBlogImg img-fluid" src="">
+						</div>
+						<div class="details">
+							<div class="tags">
+								<ul>
+									<div class="HpBlogTags"></div>
+								</ul>
+							</div>
+							<h4 class="HpBlogTitle title"></h4>
+							<p class="HpBlogText"></p>
+							<div>
+								<img class="HpBlogIcon" src="">
+								<span class="HpBlogAuthor"></span>
+							</div>
+							<br>
+							<h6 class="HpBlogDate date"></h6>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End recent-blog Area -->
+
+	<!-- start footer Area -->
+	<div th:replace="fragments/new_footer :: footer"></div>
+	<!-- End footer Area -->
+	<script src="/js/homepage.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="UTF-8">
+	<title>Travel Nest</title>
+	<link th:replace="fragments/new_source :: head"></link>
+	<link rel="stylesheet" href="css/testIndex.css">
+	<link rel="stylesheet" href="css/new_searchpage2.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.1.0/nouislider.min.css" />
+	<div th:replace="fragments/search :: css"></div>
+	<title>Travel Nest</title>
+</head>
+<body style="background-color: #EEE9E9">
+	<div th:replace="fragments/new_header :: header"></div>
+	<!-- start banner Area -->
+	<section class="relative about-banner" id="home">
+		<div class="overlay overlay-bg"></div>
+		<div class="container">
+			<div class="row d-flex align-items-center justify-content-center">
+				<div class="about-content col-lg-12">
+					<div th:replace="fragments/search :: search"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- End banner Area -->
+	<h2 class="search_section_title" id="section_title">選擇去程</h2>
+	<section class="search2_section_container">
+		<div class="search2_time">
+			<div class="slider_container">
+				<h4>選擇出發時間</h4>
+				<div id="slider"></div>
+				<div id="rangeDisplay">
+					時間: <span id="min-value">00:00</span> - <span id="max-value">23:59</span>
+				</div>
+			</div>
+			<br>
+			<hr>
+			<div id="airline_container">
+				<h4>航空公司</h4>
+			</div>
+			<hr>
+			<div id="sorting">
+				<h4>排序方式</h4>
+				<div class="sort_options">
+					<input type="radio" id="default" name="sort" class="sort"
+						value="default" checked><label>&nbsp;默認</label><br> <input
+						type="radio" id="sortPrice" name="sort" class="sort" value="price"><label>&nbsp;價格</label><br>
+					<input type="radio" id="sortTime" name="sort" class="sort"
+						value="time"><label>&nbsp;時間</label><br>
+				</div>
+			</div>
+		</div>
+
+		<div class="search2_choice" id="search2_choice"></div>
+
+		<div class="search2_space" id="search2_space"></div>
+
+		<!-- 模態窗口結構 -->
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<div class="modal-title">
+					<h2>確認航班</h2>
+				</div>
+				<div id="modalFlightInfo" class="modalFlightInfo"></div>
+				<br>
+				<button id="confirmReturn">確認回程航班</button>
+			</div>
+		</div>
+
+
+	</section>
+
+	<div th:replace="fragments/new_footer :: footer"></div>
+	<script src="/js/searchpage2.js"></script>
+	<div th:replace="fragments/search :: js"></div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.1.0/nouislider.min.js"></script>
+
+</body>
+</html>

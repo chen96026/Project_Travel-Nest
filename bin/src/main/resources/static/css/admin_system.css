@@ -1,0 +1,963 @@
+/*以下共用*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* border: 2px solid rgb(29, 223, 11); */
+  background-color: #f9f9ff !important;
+  margin: 0;
+  padding: 0;
+}
+
+.Backstage_main {
+  /* border: 2px solid red; */
+  display: flex;
+  margin-top:10vh;
+  padding: 0;
+}
+
+#Backstage_LeftSide {
+  /* border: 2px solid red; */
+  position: sticky;
+  max-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 15%;
+}
+
+#Backstage_LeftInSide {
+  /* border: 2px solid rgb(21, 18, 173); */
+  position: sticky;
+  max-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8vh;
+  flex-basis: 15%;
+}
+
+#Backstage_LeftMember,
+#Backstage_LeftOrder,
+#Backstage_LeftFlight,
+#Backstage_LeftForum,
+#Backstage_LeftNews {
+  border-bottom: 1px solid rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5vh;
+  width: 6vw;
+  font-size: 1vw;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.Backstage_MiddleSide {
+  /* border: 2px solid rgb(47, 0, 255); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 10vw;
+  min-height: 65vh;
+  background-color: #f9f9ff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex-basis: 80%;
+  margin: 0;
+  gap: 2vh;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+
+.Backstage_Title {
+  text-align: center;
+  color: #333;
+}
+
+.container_all {
+  /* border: 2px solid rgb(40, 224, 34); */
+  min-height: 50vh;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+}
+
+/*以上共用*/
+
+/*會員*/
+#Member_search-filter {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+#Member_LeftSearch {
+  display: flex;
+  gap: 1vw;
+}
+
+#Member_searchBar {
+  border: 1px solid #ddd;
+  font-size: 1vw;
+  font-size: 1vw;
+  height: 3.5vh;
+  width: 10vw;
+  cursor: auto;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+#Member_pagination {
+  background-color: #fff;
+  display: flex;
+  align-items:center;
+  gap: 1vw;
+  border-radius: 4px;
+}
+
+#Member_prevPage,
+#Member_nextPage {
+  font-size: 1vw;
+}
+
+#Member_prevPage:hover,
+#Member_nextPage:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#Member_pageSelector {
+  border: none;
+  font-size: 1vw;
+  width: 6vw;
+  height: 3.9vh;
+  cursor: pointer;
+  display:flex;
+  align-items: flex-start;
+}
+
+#Member_Table {
+  border: 1px solid #ccc;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  border: 1px solid #ddd;
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 1vh;
+  font-weight: bold;
+}
+
+td {
+  border: 1px solid #ddd;
+  background-color: #fff;
+  text-align: center;
+  padding: 1vh;
+  width: 2vw;
+}
+
+.Member_Checklook {
+  background-color: #f8b600;
+  border: none;
+  color: white;
+  height: 3.5vh;
+  width: 3.5vw;
+  font-size: 0.8vw;
+  cursor: pointer;
+}
+
+.Member_Checklook:hover {
+  background-color: #000000;
+}
+
+#Member_Notify_ButtonSide {
+  /* border: 2px solid rgb(23, 175, 63); */
+  display: flex;
+  justify-content: end;
+  margin-top: 2vh;
+  padding-right: 3vw;
+}
+
+#Member_notification {
+  /* border: 2px solid rgb(9, 9, 213); */
+  display: none;
+  justify-content: end;
+}
+
+#Member_Notify {
+  position: relative;
+  right: 0.55vw;
+  background-color: #f8b600;
+  border: none;
+  color: white;
+  height: 5vh;
+  width: 5vw;
+  font-size: 0.8vw;
+  cursor: pointer;
+}
+
+#Member_Notify:hover {
+  background-color: #000000;
+}
+
+#Member_Window {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#Member_Window_Content {
+  /* border: 2px solid rgb(9, 9, 213); */
+  background-color: #ffffff;
+  margin: 15% auto;
+  padding: 2vw;
+  border: 1px solid #888;
+  width: 25vw;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-top: -3vh;
+  margin-bottom: 3vh;
+  font-size: 1.5vw;
+}
+
+.detail {
+  /* border: 2px solid rgb(43, 255, 0); */
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 2vh;
+}
+
+.detail label {
+  font-weight: bold;
+  color: #333;
+  flex-basis: 40%;
+}
+
+.detail span {
+  color: #555;
+  flex-basis: 55%;
+  text-align: right;
+}
+
+#Member_CloseModal {
+  /* border: 2px solid rgb(43, 255, 0); */
+  margin-top: -3vh;
+  margin-right: -1vw;
+  color: #000000;
+  float: right;
+  font-size: 2vw;
+  font-weight: bold;
+}
+
+#Member_CloseModal:hover,
+#Member_CloseModal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/*訂單*/
+#order_list {
+  font-family: Arial, sans-serif;
+}
+
+#order_search_form {
+  margin-bottom: 20px;
+}
+
+#orderSearchForm input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+#orderSearchForm button {
+  padding: 8px 10px;
+  font-size: 14px;
+  background-color: #f8b600;
+  color: rgba(34, 34, 34, 0.9);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#orderSearchForm button:hover {
+  background-color: #ddd;
+  color: #333
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #333;
+  height: 5vh;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+#sort_button {
+  padding: 8px 10px;
+  font-size: 14px;
+  background-color: #f8b600;
+  color: rgba(34, 34, 34, 0.9);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#sort_button:hover {
+  background-color: #ddd;
+}
+
+.order_number {
+  white-space: nowrap;
+}
+
+select {
+  appearance: none;
+  /* 去掉瀏覽器預設的樣式 */
+  border: 1px solid #ced4da;
+  /* 改變邊框 */
+  padding: 0.5rem 1rem;
+  /* 調整內邊距 */
+  border-radius: 0.25rem;
+  /* 圓角 */
+  font-size: 1rem;
+  width: 13vh;
+  height: 20%;
+  background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-chevron-down" viewBox="0 0 24 24"%3E%3Cpath d="M6 9l6 6 6-6"/%3E%3C/svg%3E');
+  /* 自定義下拉箭頭圖標 */
+  background-position: right 0.75rem center;
+  /* 圖標位置 */
+  background-repeat: no-repeat;
+  /* 禁止圖標重複 */
+}
+
+
+/*論壇*/
+.Forum_button_group {
+  width: 120px;
+  height: 50px;
+  background-color: #FFF;
+  border: 1px solid #f8b600;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.Forum_button_group:hover {
+  background-color: #f8b600;
+}
+
+.Forum_button_checked {
+  background-color: #f8b600;
+}
+
+.Forum_divTable {
+  min-height: 300px;
+  border-bottom: 1px solid #555555;
+}
+
+.Forum_table {
+  background-color: white;
+  width: 100%;
+  padding-bottom: 20px;
+  margin: 5% auto 0 auto;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.Forum_thead_tr {
+  background-color: #F1F1F1;
+}
+
+.Forum_thead_tr>th {
+  color: #333;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  min-width: 55px;
+  height: 5vh;
+}
+
+.Forum_tbody_tr {
+  background-color: white;
+  height: 65px;
+  transition: all 0.3s ease 0s;
+}
+
+.Forum_tbody_tr:hover {
+  background-color: #fdfbf4;
+  box-shadow: inset 0 1px 0 rgb(255, 218, 148), inset 0 -1px 0 rgb(255, 218, 148);
+}
+
+.Forum_tbody_tr>td {
+  color: #555;
+  padding: 10px 1%;
+  height: 65px;
+  overflow: hidden;
+}
+
+.Forum_table_id,
+.Forum_table_keep,
+.Forum_table_delete,
+.Forum_table_reportCount {
+  width: 15%;
+  text-align: center;
+}
+
+@media(min-width: 768px) {
+
+  .Forum_table_id,
+  .Forum_table_keep,
+  .Forum_table_delete {
+    width: 6%;
+  }
+}
+
+.Forum_table_keep>div,
+.Forum_table_delete>div {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.Forum_table_reportCount {
+  display: none;
+  text-align: center;
+  width: 8%;
+}
+
+@media(min-width: 768px) {
+  .Forum_table_reportCount {
+    display: table-cell;
+  }
+}
+
+.Forum_th_textCenter {
+  text-align: center;
+}
+
+.Forum_table_title {
+  width: 20%;
+}
+
+.Forum_table_content {
+  display: none;
+  width: 52%;
+}
+
+@media(min-width: 768px) {
+  .Forum_table_content {
+    display: table-cell;
+  }
+}
+
+.Forum_table_title>span,
+.Forum_table_content>span {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /* 垂直排列 */
+  -webkit-line-clamp: 1;
+  /* 限制最大行數*/
+  overflow: hidden;
+  /* 隱藏超出部分 */
+  text-overflow: ellipsis;
+  /* 使用省略號來表示溢出的內容 */
+  word-wrap: break-word;
+  /* 使長單詞在邊界時換行 */
+}
+
+.Forum_btn {
+  background-color: transparent;
+  display: block;
+  border: none;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  transition: all 0.3s ease 0s;
+}
+
+.Forum_keep {
+  background-image: url("/assets/forum/check_circle_FILL0.svg");
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.Forum_keep:hover {
+  background-image: url("/assets/forum/check_circle_FILL1.svg");
+}
+
+.Forum_delete {
+  background-image: url("/assets/forum/cancel_FILL0.svg");
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.Forum_delete:hover {
+  background-image: url("/assets/forum/cancel_FILL1.svg");
+}
+
+.Forum_keep:focus,
+.Forum_delete:focus {
+  outline: none;
+}
+
+.Forum_noReports {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 180px;
+  padding: auto;
+}
+
+.Forum_noReports>span {
+  width: 100%;
+  font-size: larger;
+  line-height: 35px;
+  text-align: center;
+}
+
+.Forum_noReports>span:last-child {
+  color: #a3a3a3;
+}
+
+.Forum_page {
+  background-color: white;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.Forum_pageBtn {
+  color: #f8b600;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  margin: auto 5px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.Forum_pageBtn:hover {
+  color: #FFF;
+  background-color: #f8b600;
+}
+
+.Forum_thisPage {
+  color: #FFF;
+  background-color: #f8b600;
+  cursor: default;
+}
+
+.Forum_bg {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  backdrop-filter: blur(3px);
+  z-index: 998;
+}
+
+.Forum_bg_zIndex2 {
+  z-index: 999;
+}
+
+.Forum_post {
+  display: none;
+  position: fixed;
+  border: 1px solid #777;
+  width: 90%;
+  min-height: 300px;
+  background-color: white;
+  inset: 0px;
+  margin: 5% auto;
+  padding: 50px 5%;
+  font-size: larger;
+  box-shadow: 0px 10px 20px 0px rgba(60, 64, 143, 0.3);
+  z-index: 998;
+}
+
+@media(min-width: 768px) {
+  .Forum_post {
+    width: 60%;
+  }
+}
+
+.Forum_closeDetail {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  background-image: url("/assets/forum/close_deletImage.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.4;
+  transform: rotate(0);
+  transition: all 0.3s ease 0s;
+}
+
+.Forum_closeDetail:hover {
+  opacity: 1;
+  transform: rotate(-90deg);
+}
+
+.Forum_post_detail {
+  max-height: 88%;
+  overflow: auto;
+  padding-top: 1px;
+}
+
+.Forum_post_detail p,
+.Forum_post_detail span {
+  padding: 10px 5px;
+}
+
+.Forum_detail_systemInformation,
+.Forum_detail_rateAndShare {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 1px;
+  margin-right: 7px;
+}
+
+.Forum_detail_systemInformation>p,
+.Forum_detail_rateAndShare>span {
+  flex: 1;
+  background-color: #FFF;
+  box-shadow: 0 0 0 1px #777;
+  word-wrap: break-word;
+  /* 使長單詞在邊界時換行 */
+  white-space: normal;
+  /* 允許換行 */
+  margin: 0;
+}
+
+.Forum_detail_content {
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.Forum_detail_content>p:first-child {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.Forum_detail_content>p:last-child {
+  word-wrap: break-word;
+  /* 使長單詞在邊界時換行 */
+  white-space: normal;
+  /* 允許換行 */
+  max-width: calc(100% - 60px);
+}
+
+.Forum_detail_img {
+  width: 90px;
+  height: 90px;
+  border: 5px solid white;
+  outline: 2px solid transparent;
+  box-shadow: 0 0 7px rgba(60, 64, 143, 0.6);
+  object-fit: cover;
+  margin: 3px 5px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.Forum_detail_img:hover {
+  outline: 2px solid #f8b600;
+  box-shadow: 0 0 10px rgba(60, 64, 143, 0.2);
+}
+
+.Forum_post_btns {
+  position: absolute;
+  bottom: 35px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  padding-top: 30px;
+}
+
+.Forum_post_btn {
+  background-color: #f8b600;
+  color: #FFF;
+  border: 1px solid #f8b600;
+  width: 30%;
+  height: 50px;
+  font-size: larger;
+  margin: 5px 5%;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.Forum_post_btn:hover {
+  background-color: #FFF;
+  color: #f8b600;
+}
+
+.Forum_post_btn:focus {
+  outline: none;
+}
+
+.forum_detail_checkwindow {
+  position: fixed;
+  display: flex;
+  background-color: #FFF;
+  border: 1px solid #777;
+  width: 30%;
+  height: 30%;
+  top: 30%;
+  right: 0;
+  left: 0;
+  text-align: center;
+  justify-items: center;
+  flex-wrap: wrap;
+  margin: auto;
+  z-index: 999;
+  box-shadow: 0px 10px 20px 0px rgba(60, 64, 143, 0.3);
+}
+
+.forum_detail_checkwindow>p {
+  width: 100%;
+  height: 20%;
+  margin-top: 15%;
+  font-size: 24px;
+  padding: 0 10%;
+  line-height: 50px;
+}
+
+.forum_checkwindow_OK,
+.forum_checkwindow_cancel {
+  color: #FFF;
+  display: inline-block;
+  background-color: #f8b600;
+  border: 1px solid #f8b600;
+  font-size: 20px;
+  width: 30%;
+  height: 15%;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.forum_checkwindow_OK {
+  margin: 5% 5% 5% auto;
+}
+
+.forum_checkwindow_cancel {
+  margin: 5% auto 5% 5%;
+}
+
+.forum_checkwindow_OK:hover,
+.forum_checkwindow_cancel:hover {
+  background-color: #FFF;
+  color: #f8b600;
+}
+
+.forum_checkwindow_OK:focus,
+.forum_checkwindow_cancel:focus {
+  outline: none;
+}
+
+.Froum_Img {
+  display: block;
+  border: 5px solid white;
+  width: auto;
+  /* 保持原始寬度 */
+  height: auto;
+  /* 保持原始高度 */
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+/* 新聞區塊 */
+.container_all {
+  width: 75vw;
+}
+
+#newsFind>table {
+  table-layout: fixed;
+  /* 固定佈局 */
+}
+
+#newsFind th:nth-child(1),
+#newsFind td:nth-child(1) {
+  width: 5%;
+  text-align: center;
+}
+
+#newsFind th:nth-child(2),
+#newsFind td:nth-child(2) {
+  width: 20%;
+}
+
+#newsFind th:nth-child(3),
+#newsFind td:nth-child(3) {
+  width: 48%;
+}
+
+#newsFind th:nth-child(4),
+#newsFind td:nth-child(4) {
+  width: 20%;
+}
+
+#newsFind th:nth-child(5),
+#newsFind td:nth-child(5) {
+  width: 7%;
+}
+
+.newsClip {
+  overflow: hidden;
+  white-space: nowrap;
+  /* 不換行 */
+  text-overflow: ellipsis;
+  /* 超出部分顯示省略號 */
+}
+
+.newsTooltip {
+	display: none; /* 初始隱藏 */
+    position: absolute; /* 絕對定位 */
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    max-width:500px;
+    z-index: 1;
+    white-space: normal; /* 允許換行 */
+    word-wrap: break-word; /* 在必要時換行 */
+}
+
+.newsClip:hover .newsTooltip {
+    display: block;
+}
+
+#newsImgModal {
+    display: none; /* 初始隱藏 */
+    position: fixed; /* 固定位置 */
+    z-index: 1000; /* 在最上面 */
+    left: 0;
+    top: 0;
+    width: 100%; /* 全寬 */
+    height: 100%; /* 全高 */
+    overflow: auto; /* 需要時顯示滾動條 */
+    background-color: rgba(0, 0, 0, 0.8); /* 半透明背景 */
+    
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+
+#newsImg {
+    margin: auto;
+    display: block;
+    max-width: 80%; /* 大圖最大寬度 */
+    max-height: 80%; /* 大圖最大高度 */
+}
+
+#newsImgCloseBtn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer; /* 指針 */
+}
+
+.newsTinyImg {
+	cursor: pointer;
+}
+
+#newsFind td>img {
+  width: 80%;
+  /* 使圖片寬度占容器的 80% */
+  height: auto;
+  /* 根據寬度自動調整高度 */
+  object-fit: contain;
+  /* 保持圖片比例 */
+  display: block;
+  /* 避免下方空隙 */
+  margin: 0 auto;
+  /* 使圖片居中 */
+}
+
+.newsContent {
+  display: none;
+}
+
+.newsTab {
+  display: flex;
+  /* 使用彈性佈局 */
+  margin-bottom: 1rem;
+  /* 按鈕與內容之間的間距 */
+}
+
+.newsTabBtn {
+  background-color: #f0f0f0;
+  /* 按鈕背景顏色 */
+  border: 1px solid #ccc;
+  /* 按鈕邊框 */
+  padding: 10px 15px;
+  /* 按鈕內部間距 */
+  cursor: pointer;
+  /* 鼠標指針樣式 */
+  margin-right: 5px;
+  /* 按鈕間距 */
+  transition: background-color 0.3s;
+  /* 動畫效果 */
+}
+
+.newsTabBtn:hover {
+  background-color: #e0e0e0;
+  /* 懸停效果 */
+}
+
+.newsTabBtn.newsTabActive {
+  background-color: #f8b600;
+  /* 激活狀態背景顏色 */
+}

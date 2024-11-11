@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body th:fragment="header">
+	<header id="header">
+		<div class="container main-menu">
+			<div class="row align-items-center justify-content-between d-flex">
+				<div id="logo">
+					<a href="/homepage"><img src="/img/logo.png" alt="" title=""/></a>
+				</div>
+				<nav id="nav-menu-container">
+					<ul class="nav-menu">
+						<li><a href="/homepage" style="font-size:16px;">首頁</a></li>
+						<li><a href="/about" style="font-size:16px;">關於我們</a></li>
+						<li><a href="/searchpage?des_start=台灣&des_end=世界各地&date_start=2024%2F10%2F29&date_end=2024%2F10%2F30&adults=1&child=0&type=經濟艙" style="font-size:16px;">搜尋</a></li>
+						<li><a href="/forum" style="font-size:16px;">評論</a></li>
+						<li><a href="/contact" style="font-size:16px;">聯絡我們</a></li>
+						<li id="member_page"></li>
+						<li id="login_page"></li>
+					</ul>
+				</nav><!-- #nav-menu-container -->
+			</div>
+		</div>
+		<script src="/js/new_header.js"></script>
+		<script src="/js/thirdParty/func_logout.js" type="module"></script>
+	</header><!-- #header -->
+</body>
+</html>

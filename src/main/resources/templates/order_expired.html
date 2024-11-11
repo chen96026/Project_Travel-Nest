@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Travel Nest</title>
+</head>
+<body>
+    <h1>您的訂單已逾期</h1>
+    <p>抱歉，您的訂單因未在規定時間內付款，已被取消。</p>
+    
+    <button id="backHomePage">返回首頁</button>
+
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		var homePageButton = document.getElementById("backHomePage");
+		
+		
+		homePageButton.onclick = function() {
+			window.location.href = "/homepage";
+		}
+		
+	});
+	
+</script>
+
+
+</body>
+</html>

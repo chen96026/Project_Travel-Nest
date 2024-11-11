@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-TW" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${isEdit ? '編輯文章' : '新增文章'}"></title>
+    <link rel="stylesheet" href="/css/forum_edit.css">
+    <link th:replace="fragments/new_source :: head"></link>
+    <style>
+    	#header {
+			background-color: rgba(34, 34, 34, 0.9);
+	
+		}
+		.main-menu {
+  			background: transparent;	
+		}
+    </style>
+    <script th:if="${isEdit}" th:inline="javascript">
+    	var isEdit = true;
+	    var country = /*[[${post.post.country}]]*/ "all";
+	    var city = /*[[${post.post.city}]]*/ "所有城市";
+	</script>
+</head>
+
+<body class="forum_body">
+	<div th:replace="fragments/new_header :: header"></div>
+    <main class="forum_main">
+        <div class="forum_edit">
+            <div class="forum_authorInfo">
+                <img th:src="${user.iconURL}" alt="author_icon">
+                <p th:text="${user.username}"></p>
+            </div>
+            <form id="forum_form" enctype="multipart/form-data">
+                <div class="forum_where">
+                    <div>
+                        <label for="forum_select_country">* 國家：</label>
+                        <select name="country" id="forum_select_country">
+                            <optgroup label="不分國家">
+                                <option value="全世界">全世界</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="forum_select_city">* 地區：</label>
+                        <select id="forum_select_city" name="city">
+                            <optgroup label="全世界">
+                                <option value="所有城市">所有城市</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="forum_startDate">出發日：</label>
+                        <input type="date" name="startDate" id="forum_startDate" th:if="${(isEdit) and (post.post.startDate != null)} " th:value="${post.post.startDate}">
+						<input type="date" name="startDate" id="forum_startDate" th:if="${(!isEdit) or (post.post.startDate == null)}">
+                    </div>
+                    <div>
+                        <label for="forum_endDate">回程日：</label>
+                        <input type="date" name="endDate" id="forum_endDate" th:if="${(isEdit) and (post.post.endDate != null)} " th:value="${post.post.endDate}">
+						<input type="date" name="endDate" id="forum_endDate" th:if="${(!isEdit) or (post.post.endDate == null)}">
+                    </div>
+                </div>
+                <div class="forum_edit_body">
+                    <input type="text" placeholder="* 主要標題… ( 上限100字 )" maxlength="100" id="forum_edit_title1" class="forum_edit_input" name="mainTitle" minlength="1" th:value="${isEdit ? post.post.mainTitle : ''}" required>
+                    <input type="text" placeholder="次要標題… ( 上限100字 )" maxlength="100" id="forum_edit_title2" class="forum_edit_input" name="subTitle" th:value="${isEdit ? post.post.subTitle : ''}">
+                    <input type="text" placeholder="HashTag… ( 九州,活火山,拉麵… 上限100字 )" maxlength="1000" id="forum_edit_tags" class="forum_edit_input" name="tags" th:value="${isEdit ? post.post.tags : ''}">
+                    <div>
+                        <div class="forum_e_share">
+                            <span id="forum_stars">
+                                <input type="radio" name="rate" id="forum_star_1" class="forum_e_star" value="1" th:checked="${isEdit and (post.post.rate == 1)}" required>
+                                <input type="radio" name="rate" id="forum_star_2" class="forum_e_star" value="2" th:checked="${isEdit and (post.post.rate == 2)}">
+                                <input type="radio" name="rate" id="forum_star_3" class="forum_e_star" value="3" th:checked="${isEdit and (post.post.rate == 3)}">
+                                <input type="radio" name="rate" id="forum_star_4" class="forum_e_star" value="4" th:checked="${isEdit and (post.post.rate == 4)}">
+                                <input type="radio" name="rate" id="forum_star_5" class="forum_e_star" value="5" th:checked="${isEdit and (post.post.rate == 5)}">
+                            </span>
+
+                            <input type="checkbox" id="forum_onHomePage_id" name="share" th:checked="${isEdit and post.post.share}">
+                            <label for="forum_onHomePage_id">願意分享文章在網站首頁</label>
+                        </div>
+                        <div class="forum_e_textarea">
+                            <textarea maxlength="1000" placeholder="* 分享您的旅遊經驗，包括班機體驗、當地機場的便利性、交通建議或住宿、景點推薦等等 ( 上限1000字 )" id="forum_edit_textarea" name="content"  th:text="${isEdit ? content : ''}" required minlength="1"></textarea>
+                            <div>
+                                <p>發布於　<span th:text="${date}"><span></p>
+                                <button id="submit"></button>
+                            </div>
+                        </div>
+                        <div id="forum_uploadImg">
+                            <div class="forum_noImg"></div>
+                            <div class="forum_chooseImg">
+                                <p>* 至少上傳一張相片，目前未選取相片</p>
+                                <label for="forum_chooseImg_id" id="forum_chooseImg_label">
+                                    <div class="forum_chooseImg_icon"></div>
+                                    <span  class="forum_chooseImg_text">上傳相片…</span>
+                                    <input type="file" id="forum_chooseImg_id" accept="image/*" multiple>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <div th:replace="fragments/new_footer :: footer"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://upload-widget.cloudinary.com/v2.0/global/all.js"></script>
+    <script src="/js/forum/forum_form.js"></script>
+    <script src="/js/forum/forum_selectArea.js"></script>
+    <script src="/js/forum/forum_formDate.js"></script>
+    <script src="/js/forum/forum_stars.js"></script>
+    <script src="/js/forum/forum_editHover.js"></script>
+</body>
+
+</html>

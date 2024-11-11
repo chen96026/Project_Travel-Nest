@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Nest</title>
+<link th:replace="fragments/new_source :: head"></link>
+<link rel="stylesheet" th:href="@{/css/order_complete.css}">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link
+	href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+
+<body>
+	<div th:replace="fragments/new_header :: header"></div>
+
+	<section class="about-banner relative">
+		<div class="overlay overlay-bg"></div>
+		<div class="container">
+			<div class="row d-flex align-items-center justify-content-center">
+				<div class="about-content col-lg-12">
+					<div class="process-container"
+						style="text-align: center; font-size: 20px;">
+						<ul class="process-steps"
+							style="list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
+							<li
+								style="flex-grow: 0.05; display: flex; align-items: center; margin: 10px;">
+								<div class="process_info_bg"
+									style="padding: 10px; border-radius: 5px; background-color: #c7c4c4;">
+									填寫旅客資訊</div>
+							</li>
+							<li><i class="fas fa-angle-double-right"
+								style="font-size: 36px"></i></li>
+
+							<li
+								style="flex-grow: 0.05; display: flex; align-items: center; margin: 10px;">
+								<div class="process_bg"
+									style="padding: 10px; border-radius: 5px; background-color: #f8b600; color: rgba(34, 34, 34, 0.9)">
+									訂單成立/信用卡付款</div>
+							</li>
+							<li><i class="fas fa-angle-double-right"
+								style="font-size: 36px"></i></li>
+							<li
+								style="flex-grow: 0.05; display: flex; align-items: center; margin: 10px;">
+								<div class="process_bg"
+									style="padding: 10px; border-radius: 5px; background-color: #c7c4c4; width: 100px;">結帳</div>
+							</li>
+							<li><i class="fas fa-angle-double-right"
+								style="font-size: 36px"></i></li>
+							<li
+								style="flex-grow: 0.05; display: flex; align-items: center; margin: 10px;">
+								<div class="process_bg"
+									style="padding: 10px; border-radius: 5px; background-color: #c7c4c4;">完成訂購</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div class="container_bg ">
+		<div class="container_all"
+			style="width: 80%; padding: 20px; font-size: 20px; margin-top: 5%;">
+			<div class="box">
+				<div>親愛的顧客您好，您的訂單已成立！</div>
+				<div>
+					請於<span style="color: red;" th:text="${payBeforeTime+ ' 前支付款項！'}"></span>
+				</div>
+				<div>逾時您的預訂將會被取消</div>
+				<div>
+					剩餘時間：<span id="countdown"></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="container_order_title"
+			style="margin-top: 5%; font-weight: bold;">
+			<div
+				style="display: flex; justify-content: space-between; align-items: center;">
+				<div style="font-size: 20px">訂單明細</div>
+				<div>
+					<div style="display: flex; justify-content: space-between;">
+						<div>訂單編號：&nbsp;</div>
+						<div th:text="${order.orderNumber}">00119656</div>
+					</div>
+					<div style="display: flex; justify-content: space-between;">
+						<div>成立時間：&nbsp;</div>
+						<div th:text="${formattedCreateDateTime}">2024-09-06</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<div class="container_order_detail" style="margin-bottom: 5%;">
+			<div>
+				<div
+					style="font-size: 20px; font-weight: bold; color: white; margin: 10px 0 5px 0";>聯絡人資訊</div>
+				<div class="container_all" style="width: 100%; padding: 20px;">
+					<div class="box_orderInfo">
+						<div>
+							<div>
+								中文姓名：<span th:text="${contactName}"></span>
+							</div>
+						</div>
+						<div>
+							<div>
+								E-MAIL：<span th:text="${contactEmail}"></span>
+							</div>
+						</div>
+						<div>
+							<div>
+								聯絡電話：<span th:text="${contactPhone}"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<div
+						style="font-size: 20px; font-weight: bold; color: white; margin: 30px 0 5px 0">確認付款金額</div>
+					<div class="container_all"
+						style="width: 100%; padding: 20px; margin-bottom: -25px;">
+						<div class="box_orderInfo">
+							<div style="display: flex; justify-content: start; width: 90%">
+								<div>
+									訂單編號：<span th:text="${order.orderNumber}"></span>
+								</div>
+							</div>
+							<div
+								style="display: flex; justify-content: space-between; width: 82%;">
+								<div>
+									訂單成立時間：<span th:text="${formattedCreateDateTime}"></span>
+								</div>
+							</div>
+							<div
+								style="display: flex; justify-content: space-between; width: 82%;">
+								<div>
+									聯絡人：<span th:text="${contactName}"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="container_all" style="width: 100%; padding: 20px;">
+						<div class="box">
+							<div
+								style="color: red; border: 1px solid red; width: 10%; text-align: center; border-radius: 5px;">
+								處理中</div>
+							<hr style="border: 1px solid gray; width: 100%;">
+							<div id="container_all"></div>
+
+
+
+
+
+
+							<!-- 
+							
+							
+							<hr style="border: 1px solid gray; width: 100%;">
+							<div>
+								<div>旅客姓名：</div>
+								<div>LIRU HUANG</div>
+								<div>LIRU HUANG</div>
+							</div>
+							<div>
+								<div>去程加購行李：</div>
+								<div>
+									<span style="margin-right:10px;">旅客姓名:</span><span>2件，共40公斤 - NT$1,690</span>
+								</div>
+								<div>
+									<span style="margin-right:10px;">旅客姓名:</span><span>2件，共40公斤 - NT$1,690</span>
+								</div>
+							</div>
+							<div>
+								<div>回程加購行李：</div>
+								<div>
+									<span style="margin-right:10px;">旅客姓名:</span><span>2件，共40公斤 - NT$1,690</span>
+								</div>
+								<div>
+									<span style="margin-right:10px;">旅客姓名:</span><span>2件，共40公斤 - NT$1,690</span>
+								</div>
+							</div>
+							
+							
+							 -->
+
+
+
+
+
+						</div>
+						<div class="box">
+							<div
+								style="font-size: 20px; display: flex; justify-content: space-between; margin: 0 10% 0 20%;">
+								<div style="font-weight: bold;">待付金額</div>
+								<div style="display: flex; color: red; font-weight: bold">
+									<div>NT$</div>
+									<div th:text="${formattedPrice}">14,347</div>
+									<div>元</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+			<div style="display: flex; justify-content: center;">
+				<form style="width: 80%; text-align: center;"
+					th:action="@{/ecpayCheckout/{oid}(oid=${order.oid})}" method="get"
+					id="paymentForm">
+					<button class="style_nextstep" type="button" id="payButton">前往付款</button>
+				</form>
+			</div>
+
+			<!-- Modal -->
+			<div id="confirmModal" class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<h2 class="mb-3">付款確認</h2>
+					<h5 class="mb-3">您即將進入付款流程。請注意，如果您在付款過程中關閉視窗，將需要重新建立訂單。是否繼續進行付款？</h5>
+					<button class="button button-confirm" id="confirmPayment">確定前往付款</button>
+					<button class="button button-cancel paylatter">稍後付款，回到首頁</button>
+					<p>提醒:訂單逾期付款將取消訂單!</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div th:replace="fragments/new_footer :: footer"></div>
+
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/superfish/1.7.9/js/superfish.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+
+	<script src="/js/orderComplete.js"></script>
+</body>
+
+</html>

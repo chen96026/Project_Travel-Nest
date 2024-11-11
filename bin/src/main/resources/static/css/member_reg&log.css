@@ -1,0 +1,309 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Roboto", sans-serif;
+}
+
+body {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #f9f9f9;
+}
+
+a {
+	text-decoration: none;
+}
+
+.member_login_container, .member_register_container {
+	display: flex;
+	max-width: 60vw;
+	margin-top: 3.5vh;
+	width: 100%;
+	height: 90vh;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	border-radius: 20px;
+	overflow: hidden;
+}
+
+.member_login_left-side, .member_register_left-side {
+	background-color: #ffffff;
+	padding: 4vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.member_login_right-side, .member_register_right-side {
+	background-color: #f5f5f5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.member_login_logo-container, .member_register_logo-container {
+	text-align: center;
+}
+
+.member_login_logo, .member_register_logo {
+	transform:scale(1.2);
+	width: 8vw;
+	margin-bottom: 5vh;
+}
+
+.member_login_container h1, .member_register_container h1 {
+	font-weight: 700;
+	font-size: 2vw;
+	margin-bottom: 1vh;
+	color: #000000;
+}
+
+.member_login_container p, .member_register_container p {
+	font-size: 16px;
+	margin-bottom: 2vh;
+	color: #555;
+}
+
+.member_login_or-text, .member_register_or-text {
+	text-align: center;
+	margin: 2vh;
+	position: relative;
+	color: #aaa;
+}
+
+.member_login_or-text::before, .member_login_or-text::after,
+	.member_register_or-text::before, .member_register_or-text::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	width: 40%;
+	height: 0.1vh;
+	background-color: #ccc;
+}
+
+.member_login_or-text::before, .member_register_or-text::before {
+	left: 0;
+}
+
+.member_login_or-text::after, .member_register_or-text::after {
+	right: 0;
+}
+
+.member_login_container form, .member_register_container form {
+	display: flex;
+	flex-direction: column;
+}
+
+.member_login_eyes, .member_register_eyes {
+	position: relative;
+	margin-bottom: 3.5vh;
+	display: flex;
+	align-items: center;
+}
+
+#member_check_group {
+	position: absolute;
+	right: 0.3vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#checkEmail {
+	height: 3vh;
+	display: flex;
+	align-items: start;
+	font-size: 0.9vw;
+}
+
+#emailStatusIcon {
+	height: 3vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.9vw;
+}
+
+.fa-eye-slash, .fa-eye {
+	position: absolute;
+	right: 0.5vw;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+	color: #333;
+	font-size: 0.8vw;
+	width: 1vw;
+	height: 2vh;
+}
+
+.member_login_input-field, .member_register_input-field {
+	width: 25vw;
+	height: 5vh;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	font-size: 0.8vw;
+	padding-left: 0.5vw;
+}
+
+#member_passwordMatchIcon, #member_passwordMatchIcon {
+	position: absolute;
+	right: 2vw;
+	width: 1vw;
+	font-size: 0.9vw;
+}
+
+.member_login_remember-me, .member_register_remember-me {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.member_login_remember-me input, .member_register_remember-me input {
+	margin-right: 10px;
+}
+
+#member_login_login-btn, #member_register_register-btn {
+	width: 100%;
+	padding: 15px;
+	background-color: #000000;
+	color: #ffffff;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+#member_login_login-btn, #member_register_register-btn:hover {
+	transform: scale(1);
+	background-color: #333333;
+}
+
+#member_login_login-btn, #member_register_register-btn:active {
+	transform: scale(0.95);
+	background-color: #333333;
+}
+
+#member_login_login-link, #member_register_login-link {
+	text-align: center;
+	margin-top: 10px;
+}
+
+#member_login_login-link a, #member_register_login-link a {
+	color: #000000;
+	text-decoration: none;
+}
+
+#member_login_login-link a:hover, #member_register_login-link a:hover {
+	color: #e7951a;
+}
+
+.member_image-container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	/* 隱藏超出的部分 */
+}
+
+.member_register_design-image {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 100%;
+	/* 初始位置在右側，等待滑入 */
+	opacity: 0;
+	/* 初始狀態為透明 */
+	transition: left 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.7s ease;
+	/* 調整過渡效果 */
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.member_register_design-image.active {
+	left: 0;
+	/* 新圖片從右側滑入到中央 */
+	opacity: 1;
+	/* 淡入圖片 */
+}
+
+.member_register_design-image.prev {
+	left: -100%;
+	/* 當前圖片滑出到左側 */
+	opacity: 0;
+	/* 淡出圖片 */
+	transition: left 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.7s ease;
+	/* 調整過渡時間 */
+}
+
+.member_register_design-image.initial {
+	left: 0;
+	/* 頁面加載時，初始圖片應該直接顯示 */
+	opacity: 1;
+	/* 初始圖片完全可見 */
+	transition: none;
+	/* 初始圖片不需要過渡 */
+}
+
+.member_group_button {
+	/* border: 2px solid red; */
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	gap: 1vw;
+}
+
+.member_google-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	color: #757575;
+	border: 0.1px solid #dadce0;
+	border-radius: 4px;
+	font-size: 1vw;
+	cursor: pointer;
+	transition: box-shadow 0.2s ease;
+	width: 12vw;
+	height: 6vh;
+}
+
+.member_google-btn:hover {
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.member_google-logo {
+	width: 3vw;
+	height: 6vh;
+	border-radius: 50%;
+	padding: 0.5vw;
+}
+
+.member_line-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #06C755;
+	border: 1px solid #dadce0;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	font-size: 1vw;
+	cursor: pointer;
+	transition: box-shadow 0.2s ease;
+	width: 12vw;
+	height: 6vh;
+}
+
+.member_line-btn:hover {
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.member_line-logo {
+	width: 3vw;
+	height: 6vh;
+	padding: 0.2vw;
+}

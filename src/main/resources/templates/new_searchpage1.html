@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="UTF-8">
+	<title>Travel Nest</title>
+	<link rel="stylesheet" th:href="@{/css/new_searchpage1.css}">
+	<link th:replace="fragments/new_source :: source"></link>
+	<link rel="stylesheet" href="css/testIndex.css">
+	<div th:replace="fragments/search :: css"></div>
+<title>Search</title>
+
+</head>
+<body style="background-color: #EEE9E9">
+	<div th:replace="fragments/new_header :: header"></div>
+	<!-- start banner Area -->
+	<section class="relative about-banner" id="home">
+		<div class="overlay overlay-bg"></div>
+		<div class="container">
+			<div class="row d-flex align-items-center justify-content-center">
+				<div class="about-content col-lg-12">
+					<div th:replace="fragments/search :: search"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End banner Area -->
+	<section class="search_section_container" id="destination">
+		<h2 class="search_section_title" id="section_title"></h2>
+		<div class="search_container_grid" id="cards-container"></div>
+		<div id="loading" class="search_loading">Loading...</div>
+	</section>
+
+	<script src="/js/searchpage1.js"></script>
+	<div th:replace="fragments/search :: js"></div>
+	<div th:replace="fragments/new_footer :: footer"></div>
+
+</body>
+</html>

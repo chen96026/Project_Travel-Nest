@@ -1,0 +1,167 @@
+/* 表單 */
+.list-wrap {
+    padding: 10px;
+}
+
+/* 表單每個欄位的標題 */
+#contact_form label>div {
+    font-size: 18px;
+    color: black;
+    font-weight: 600;
+}
+
+/* 表單每個欄位的輸入框 */
+.contact_input, .contact_select, .contact_textarea {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+}
+
+.contact_textarea {
+    resize: none;
+    height: 120px;
+}
+
+/* 送出按鈕 */
+#contact_submit {
+    font-size: 18px;
+}
+
+.contact_emptyInput {
+    background-color: #f3eeee;
+    border: 1px solid #BC002D;
+}
+
+.contact_bg {
+	display: none;
+	background-color: rgba(0, 0, 0, 0.3);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	backdrop-filter: blur(3px);
+	z-index: 998;
+}
+
+.contact_send {
+    display: none;
+    position: fixed;
+    background-color: #FFF;
+    border: 1px solid #777;
+    width: 55%;
+    height: 45%;
+    top: 25%;
+    right: 0;
+    left: 0;
+    margin: auto;
+    box-shadow: 0px 10px 20px 0px rgba(60, 64, 143, 0.3);
+	z-index: 998;
+}
+
+@media(min-width: 992px) {
+    .contact_send {
+        width: 36%;
+    	height: 43%;
+    }
+}
+
+@media(min-width: 1200px) {
+    .contact_send {
+        width: 30%;
+    	height: 42%;
+    }
+}
+
+.contact_send h1 {
+    text-align: center;
+    margin: 0;
+}
+
+.contact_send p {
+    font-size: 20px;
+    margin: 15px 10%;
+}
+
+.contact_mail {
+    display: block;
+    margin: 25px auto 0px auto;
+}
+
+.contact_btnClose {
+    background-color: #f8b600;
+    color: #FFF;
+    display: block;
+    border: 1px solid #f8b600;
+    width: 20%;
+    font-size: 18px;
+    text-align: center;
+    padding: 15px 0;
+    margin: 30px auto 0 auto;
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+}
+
+.contact_btnClose:hover {
+    background-color: #FFF;
+    color: #f8b600;
+}
+
+.contact_btnSubmit:focus, .contact_btnClose:focus {
+	outline: none;
+}
+
+.contact_waiting {
+    position: fixed;
+    display: flex;
+    background-color: #FFF;
+    border: 1px solid #777;
+    width: 30%;
+    height: 30%;
+    top: 30%;
+    right: 0;
+    left: 0;
+    text-align: center;
+    justify-items: center;
+    flex-wrap: wrap;
+    margin: auto;
+    box-shadow: 0px 10px 20px 0px rgba(60, 64, 143, 0.3);
+    z-index: 998;
+}
+
+.contact_waiting > p {
+    width: 100%;
+    height: 20%;
+    margin-top: 13%;
+    font-size: 20px;
+    padding: 0 5px;
+    line-height: 50px;
+}
+
+.spinner-box {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+.three-quarter-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #777;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin .5s linear 0s infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(359deg);
+  }
+}

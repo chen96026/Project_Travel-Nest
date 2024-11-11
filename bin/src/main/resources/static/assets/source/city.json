@@ -1,0 +1,270 @@
+[
+    {
+        "country": "all",
+        "area": [
+            {
+                "areaName": "全世界",
+                "city":
+                [
+                    {
+                        "cityName": "所有地點",
+                        "cityValue": "all"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "country": "Japan",
+        "area": [
+            {
+                "areaName":"北海道",
+                "city":
+                [
+                    {
+                        "cityName": "北海道",
+                        "cityValue": "Hokkaido"
+                    }
+                ]
+            },
+            {
+                "areaName": "東北",
+                "city":
+                [
+                    {
+                        "cityName": "青森",
+                        "cityValue": "Aomori"
+                    },
+                    {
+                        "cityName": "秋田",
+                        "cityValue": "Akita"
+                    },
+                    {
+                        "cityName": "岩手",
+                        "cityValue": "Iwate"
+                    },
+                    {
+                        "cityName": "山形",
+                        "cityValue": "Yamagata"
+                    },
+                    {
+                        "cityName": "宮城",
+                        "cityValue": "Miyagi"
+                    },
+                    {
+                        "cityName": "福島",
+                        "cityValue": "Fukushima"
+                    }
+                ]
+            },
+            {
+                "areaName": "北越信越",
+                "city":
+                [
+                    {
+                        "cityName": "新潟",
+                        "cityValue": "Niigata"
+                    },
+                    {
+                        "cityName": "富山",
+                        "cityValue": "Toyama"
+                    },
+                    {
+                        "cityName": "石川",
+                        "cityValue": "Ishikawa"
+                    },
+                    {
+                        "cityName": "福井",
+                        "cityValue": "Fukui"
+                    },
+                    {
+                        "cityName": "長野",
+                        "cityValue": "Nagano"
+                    }
+                ]
+            },
+            {
+                "areaName": "關東",
+                "city":
+                [
+                    {
+                        "cityName": "東京",
+                        "cityValue": "Tokyo"
+                    },
+                    {
+                        "cityName": "神奈川",
+                        "cityValue": "Kanagawa"
+                    },
+                    {
+                        "cityName": "千葉",
+                        "cityValue": "Chiba"
+                    },
+                    {
+                        "cityName": "埼玉",
+                        "cityValue": "Saitama"
+                    },
+                    {
+                        "cityName": "茨城",
+                        "cityValue": "Ibaraki"
+                    },
+                    {
+                        "cityName": "栃木",
+                        "cityValue": "Tochigi"
+                    },
+                    {
+                        "cityName": "群馬",
+                        "cityValue": "Gunma"
+                    }
+                ]
+            },
+            {
+                "areaName": "東海",
+                "city":
+                [
+                    {
+                        "cityName": "山梨",
+                        "cityValue": "Yamanashi"
+                    },
+                    {
+                        "cityName": "靜岡",
+                        "cityValue": "Shizuoka"
+                    },
+                    {
+                        "cityName": "岐阜",
+                        "cityValue": "Gifu"
+                    },
+                    {
+                        "cityName": "愛知",
+                        "cityValue": "Aichi"
+                    },
+                    {
+                        "cityName": "三重",
+                        "cityValue": "Mie"
+                    }
+                ]
+            },
+            {
+                "areaName": "關西",
+                "city":
+                [
+                    {
+                        "cityName": "京都",
+                        "cityValue": "Kyoto"
+                    },
+                    {
+                        "cityName": "大阪",
+                        "cityValue": "Osaka"
+                    },
+                    {
+                        "cityName": "滋賀",
+                        "cityValue": "Shiga"
+                    },
+                    {
+                        "cityName": "兵庫",
+                        "cityValue": "Hyogo"
+                    },
+                    {
+                        "cityName": "奈良",
+                        "cityValue": "Nara"
+                    },
+                    {
+                        "cityName": "和歌山",
+                        "cityValue": "Wakayama"
+                    }
+                ]
+            },
+            {
+                "areaName": "中國",
+                "city":
+                [
+                    {
+                        "cityName": "鳥取",
+                        "cityValue": "Tottori"
+                    },
+                    {
+                        "cityName": "島根",
+                        "cityValue": "Shimane"
+                    },
+                    {
+                        "cityName": "岡山",
+                        "cityValue": "Okayama"
+                    },
+                    {
+                        "cityName": "廣島",
+                        "cityValue": "Hiroshima"
+                    },
+                    {
+                        "cityName": "山口",
+                        "cityValue": "Yamaguchi"
+                    }
+                ]
+            },
+            {
+                "areaName": "四國",
+                "city":
+                [
+                    {
+                        "cityName": "德島",
+                        "cityValue": "Tokushima"
+                    },
+                    {
+                        "cityName": "香川",
+                        "cityValue": "Kagawa"
+                    },
+                    {
+                        "cityName": "愛媛",
+                        "cityValue": "Ehime"
+                    },
+                    {
+                        "cityName": "高知",
+                        "cityValue": "Kochi"
+                    }
+                ]
+            },
+            {
+                "areaName": "九州",
+                "city":
+                [
+                    {
+                        "cityName": "福岡",
+                        "cityValue": "Fukuoka"
+                    },
+                    {
+                        "cityName": "佐賀",
+                        "cityValue": "Saga"
+                    },
+                    {
+                        "cityName": "長崎",
+                        "cityValue": "Nagasaki"
+                    },
+                    {
+                        "cityName": "大分",
+                        "cityValue": "Oita"
+                    },
+                    {
+                        "cityName": "熊本",
+                        "cityValue": "Kumamoto"
+                    },
+                    {
+                        "cityName": "宮崎",
+                        "cityValue": "Miyazaki"
+                    },
+                    {
+                        "cityName": "鹿兒島",
+                        "cityValue": "Kagoshima"
+                    }
+                ]
+            },
+            {
+                "areaName": "沖繩",
+                "city":
+                [
+                    {
+                        "cityName": "沖繩",
+                        "cityValue": "Okinawa"
+                    }
+                ]
+            }
+        ]
+    }
+]

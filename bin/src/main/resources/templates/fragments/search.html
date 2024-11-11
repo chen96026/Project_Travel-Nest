@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Search Page</title>
+	<style th:fragment="css">
+		.suggestions {
+    		position: absolute;
+    		top: 85%; /* 放在輸入框下方 */
+    		left: 15px;
+    		right: 0;
+    		width:83.5%;
+    		background-color: white;
+    		border: 1px solid #ccc;
+    		z-index: 10;
+    		max-height: 150px;
+    		overflow-y: auto;
+    		display: none; /* 初始隱藏 */
+		}
+
+		.suggestions div {
+    		padding: 10px;
+    		cursor: pointer;
+    		font-size: 14px;
+    		font-weight: 600;
+		}
+
+		.suggestions div:hover, .suggestions .active {
+    		background-color: #e0e0e0;
+    		color: #333;
+		}
+
+		/* 確保每個 autocomplete 容器是相對定位的 */
+		.autocomplete {
+   		    position: relative;
+   		    width: 100%;
+		}
+	</style>
+</head>
+<body th:fragment="search">
+	
+	<div class="col-lg-12 banner-right">
+		<div class="tab-content" id="myTabContent">
+			<div class="tab-pane fade show active" id="flight" role="tabpanel"
+				aria-labelledby="flight-tab">
+				<form class="form-wrap" id="search_form" autocomplete="off">
+					<div class="row">
+						<div class="autocomplete col-md-2">
+    						<h5 class="Hp_formTitle" style="margin-top:0;margin-bottom:0;">出發地</h6>
+    						<input type="text" id="des_start" class="form-control" name="des_start"
+           							placeholder="From " onfocus="this.placeholder = ''"
+           							onblur="this.placeholder = 'From '">
+    						<div class="suggestions" id="suggestions_des_start" role="listbox"></div> <!-- 建議欄位 -->
+						</div>
+
+						<div class="autocomplete col-md-2">
+    						<h5 class="Hp_formTitle" style="margin-top:0;margin-bottom:0;">目的地</h6>
+    						<input type="text" id="des_end" class="form-control" name="des_end"
+           							placeholder="To " onfocus="this.placeholder = ''"
+           							onblur="this.placeholder = 'To '">
+    						<div class="suggestions" id="suggestions_des_end" role="listbox"></div> <!-- 建議欄位 -->
+						</div>
+						<div class="col-md-2">
+							<h5 style="text-align: start">出發日期</h5>
+							<input type="text" id="date_start"
+								class="form-control date-picker" name="date_start" placeholder="出發日期"
+								onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'Start'">
+						</div>
+						<div class="col-md-2">
+							<h5 style="text-align: start">回程日期</h5>
+							<input type="text" id="date_end" class="form-control date-picker"
+								name="date_end" placeholder="回程日期" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'Return'">
+						</div>
+						<div class="col-md-2">
+							<h5 style="text-align: start">成年人數</h5>
+							<input type="number" id="adults" min="1" max="20" value="1"
+								class="form-control" name="adults" placeholder="成年人數"
+								onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'Adults'">
+						</div>
+						<div class="col-md-2">
+							<h5 style="text-align: start">未成年人數</h5>
+							<input type="number" id="child" min="0" max="20" value="0"
+								class="form-control" name="child" placeholder="未成年人數"
+								onfocus="this.placeholder = ''"
+								onblur="this.placeholder = 'Child'">
+						</div>
+					</div>
+					<div class="row mt-1">
+						<div class="col-md-8"></div>
+						<div class="col-md-4" style="text-align: right;">
+							<label><input type="radio" name="type" value="經濟艙" checked>
+								經濟艙&nbsp;</label> <label><input type="radio" name="type" value="商務艙">
+								商務艙&nbsp;</label> <button class="primary-btn text-uppercase" id="search_btn" type="submit">搜尋航班</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+</body>
+
+<script th:fragment="js">
+	//防抖函數
+	function debounce(func, delay) {
+		let debounceTimer;
+		return function() {
+			const context = this;
+			const args = arguments;
+			clearTimeout(debounceTimer);
+			debounceTimer = setTimeout(() => func.apply(context, args), delay);
+		}
+	}
+
+	// 追蹤當前選中的建議索引，分別為 des_start 和 des_end
+	const currentFocus = {
+		des_start: -1,
+		des_end: -1
+	};
+
+	// 函數：顯示建議
+	function showSuggestions(input, suggestionsDiv, inputId) {
+		const inputValue = input.value.toLowerCase();
+
+		// 清空之前的建議
+		suggestionsDiv.innerHTML = '';
+
+		if (inputValue) {
+			// 從伺服器獲取建議數據
+			fetch(`/plane/inputSearch?query=${encodeURIComponent(inputValue)}`)
+				.then(response => response.json())
+				.then(data => {
+					if (data.length === 0) {
+						suggestionsDiv.style.display = 'none';
+						return;
+					}
+
+					data.forEach(item => {
+						const suggestionText = `${item.country} - ${item.city}`;
+						const div = document.createElement('div');
+						div.textContent = suggestionText;
+						div.setAttribute('role', 'option');
+
+						// 當點擊某個建議時，將其設置為輸入框的值
+						div.addEventListener('click', function() {
+							input.value = item.city;
+							suggestionsDiv.style.display = 'none';
+						});
+
+						suggestionsDiv.appendChild(div);
+					});
+
+					suggestionsDiv.style.display = 'block';
+				})
+				.catch(error => {
+					console.error('Error fetching suggestions:', error);
+					suggestionsDiv.style.display = 'none';
+				});
+		} else {
+			suggestionsDiv.style.display = 'none';
+		}
+	}
+
+	// 監聽輸入事件並綁定防抖
+	const inputs = ['des_start', 'des_end'];
+	inputs.forEach(inputId => {
+		const input = document.getElementById(inputId);
+		const suggestionsDiv = document.getElementById(`suggestions_${inputId}`);
+
+		input.addEventListener('input', debounce(function() {
+			showSuggestions(input, suggestionsDiv, inputId);
+			currentFocus[inputId] = -1; // 重置選中索引
+		}, 300));
+
+		// 監聽鍵盤事件
+		input.addEventListener('keydown', function(e) {
+			let suggestionItems = suggestionsDiv.getElementsByTagName('div');
+			if (e.keyCode === 40) { // Arrow Down
+				currentFocus[inputId]++;
+				addActive(suggestionItems, inputId);
+			} else if (e.keyCode === 38) { // Arrow Up
+				currentFocus[inputId]--;
+				addActive(suggestionItems, inputId);
+			} else if (e.keyCode === 13) { // Enter
+				e.preventDefault();
+				if (currentFocus[inputId] > -1) {
+					if (suggestionItems) suggestionItems[currentFocus[inputId]].click();
+				}
+			}
+		});
+
+		// 添加 active 類名以高亮選中項目
+		function addActive(items, inputId) {
+			if (!items) return false;
+			removeActive(items);
+			if (currentFocus[inputId] >= items.length) currentFocus[inputId] = 0;
+			if (currentFocus[inputId] < 0) currentFocus[inputId] = items.length - 1;
+			items[currentFocus[inputId]].classList.add('active');
+			// 滾動到可見範圍
+			items[currentFocus[inputId]].scrollIntoView({ block: 'nearest' });
+		}
+
+		// 移除所有 active 類名
+		function removeActive(items) {
+			for (let i = 0; i < items.length; i++) {
+				items[i].classList.remove('active');
+			}
+		}
+	});
+
+	// 當點擊建議框外部時隱藏建議框
+	document.addEventListener('click', function(e) {
+		inputs.forEach(inputId => {
+			const suggestionsDiv = document.getElementById(`suggestions_${inputId}`);
+			const input = document.getElementById(inputId);
+			if (e.target === input || e.target.closest(`#suggestions_${inputId}`)) {
+				// 點擊在輸入框內或建議框內，不做任何操作
+				return;
+			}
+			// 隱藏所有建議框
+			suggestionsDiv.style.display = 'none';
+		});
+	});
+	
+	document.addEventListener('keydown', function(e) {
+	    if (e.keyCode === 9) { // Tab 鍵
+	        inputs.forEach(inputId => {
+	            const suggestionsDiv = document.getElementById(`suggestions_${inputId}`);
+	            // 隱藏所有建議框
+	            suggestionsDiv.style.display = 'none';
+	        });
+	    }
+	});
+</script>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Nest</title>
+<link th:replace="fragments/new_source :: head"></link>
+<link th:replace="fragments/new_header :: head"></link>
+<link th:replace="fragments/new_footer :: head"></link>
+<link rel="stylesheet" href="/css/member_page.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+</head>
+
+<body>
+	<div th:replace="fragments/new_header :: header"></div>
+
+	<div class="member_container">
+		<div class="left-spacer"></div>
+
+		<div class="sidebar">
+			<div id="member_Info_User">
+				<div class="member_Info_Avatar2">
+					<img id="member_info_icon2" src="./assets/member.png" />
+				</div>
+			</div>
+			<hr />
+			<div class="account-info" onclick="toggleDropdown('accountDropdown')">
+				<span class="branch-square"></span>
+				<h3>帳號資料</h3>
+			</div>
+			<div class="dropdown" id="accountDropdown">
+				<div class="dropdown-item" id="account">
+					<span class="branch-line"></span>個人資料
+				</div>
+				<div class="dropdown-item" id="password">
+					<span class="branch-line"></span>更改密碼
+				</div>
+			</div>
+			<hr />
+			<div class="order-management" onclick="toggleDropdown('orderDropdown')">
+				<span class="branch-square"></span>
+				<h3>訂單管理</h3>
+			</div>
+			<div class="dropdown" id="orderDropdown">
+				<div class="dropdown-item" id="order_now">
+					<span class="branch-line"></span>當前訂單
+				</div>
+				<div class="dropdown-item" id="order_before">
+					<span class="branch-line"></span>歷史訂單
+				</div>
+			</div>
+			<hr />
+			<div class="my-comments" onclick="toggleDropdown('commentDropdown')">
+				<span class="branch-square"></span>
+				<h3>我的評論</h3>
+			</div>
+			<div class="dropdown" id="commentDropdown">
+				<div class="dropdown-item" id="forumByMe">
+					<span class="branch-line">&nbsp;</span>歷史評論
+				</div>
+				<div class="dropdown-item" id="favoritePosts">
+					<span class="branch-line">&nbsp;</span>收藏評論
+				</div>
+			</div>
+			<hr />
+			<div class="logout">
+				<button id="member_logout">登出</button>
+			</div>
+		</div>
+
+		<div class="gap"></div>
+
+		<div class="main-content" id="main-content"></div>
+
+		<div class="right-spacer"></div>
+	</div>
+	<div th:replace="fragments/new_footer :: footer"></div>
+
+	<script src="/js/new_memberpage.js"></script>
+</body>
+
+</html>

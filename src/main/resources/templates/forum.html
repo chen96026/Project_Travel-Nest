@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-TW" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Nest</title>
+    <link rel="stylesheet" href="/css/forum.css">
+    <link th:replace="fragments/new_source :: head"></link>
+    <style>
+    	#header {
+			background-color: rgba(34, 34, 34, 0.9);
+	
+		}
+		.main-menu {
+  			background: transparent;	
+		}
+    </style>
+</head>
+
+<body>
+	<div th:replace="fragments/new_header :: header"></div>
+    <main class="forum_main">
+        <section class="destinations-area section-gap">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="menu-content pb-40 col-lg-8">
+                        <div class="title text-center">
+                            <h1 class="mb-10">探索世界各地的旅遊心得</h1>
+                            <p>可以透過國家、城市、文章標題與 Tag 快速找尋有興趣的旅遊景點，也可以將旅遊心得分享給其他使用者</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="forum_search">
+                    <select name="sortBy" id="forum_sort">
+                        <option value="postDate">日期新到舊</option>
+                        <option value="likes">讚數多到少</option>
+                        <option value="rating">星級高到低</option>
+                    </select>
+                    <select name="country" id="forum_select_country">
+                        <optgroup label="不分國家">
+                            <option value="全世界">全世界</option>
+                        </optgroup>
+                    </select>
+                    <select name="city" id="forum_select_city">
+                        <optgroup label="全世界">
+                            <option value="所有城市">所有城市</option>
+                        </optgroup>
+                    </select>
+                    <input type="search" name="key" id="forum_search_key" placeholder="輸入 文章標題 或 Tag 關鍵字"
+                        th:value="${key != null ? key : ''}">
+                </div>
+            </div>
+        </section>
+        <div class="forum_cards" id="cards-container"></div>
+        </div>
+        <div id="loading" class="forum_loading">
+            <p>Loading...</p>
+        </div>
+    </main>
+    <div class="forum_write">
+        <a href="/forum/edit">
+            <div class="forum_writeImg"></div>
+            <p class="forum_writeP">撰寫心得</p>
+        </a>
+    </div>
+    <div th:replace="fragments/new_footer :: footer"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/js/forum/forum_selectArea.js"></script>
+    <script src="/js/forum/forum_loadingCards.js"></script>
+</body>
+
+</html>

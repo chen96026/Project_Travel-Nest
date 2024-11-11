@@ -1,0 +1,451 @@
+body {
+	color: #222;
+	font-weight: 500;
+}
+
+.search_section_title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	color: black;
+	padding-left: 25vw;
+	padding-top: 2vh;
+	padding-bottom: 0.5vh;
+}
+
+.search2_section_container {
+	max-width: 100%;
+	margin: auto;
+	padding: 0rem 4rem;
+	display: flex;
+	margin-bottom: 5vh;
+}
+
+hr {
+	width: 80%;
+	margin-left: 0vw;
+}
+
+.search2_time {
+	width: 16vw;
+	display: flex;
+	flex-direction: column;
+}
+
+.slider_container {
+	padding-top: 20px;
+}
+
+#slider {
+	height: 10px;
+}
+
+.search_footer_col {
+	text-align: start;
+}
+
+#airline_container h4, #sorting h4 {
+	padding-bottom: 15px;
+}
+
+.search2_start_time {
+	text-align: center;
+	font-size: 20px;
+	width: 80%;
+	margin-left: 7%;
+}
+
+.search2_choice {
+	display: flex;
+	flex-direction:column;
+	padding: 20px 0px 20px 6vw;
+	width: 60vw;
+	gap: 20px;
+}
+
+.choice-card {
+	background-color: #fff;
+	padding: 20px 20px 20px 40px;
+	border-radius: 10px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	width: 92%;
+	height: 10vh;
+	transition: transform 0.3s ease;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	gap:40px;
+}
+
+.flight_logo_container{
+	max-width:180px;
+	min-width:180px;
+	text-align: center;
+	margin-left:-20px;
+}
+
+.flight_logo{
+	min-width:100px;
+	min-height:30px;
+	max-width:160px;
+	max-height:50px;
+	width: auto;
+	height:auto;
+	justify-content:center;
+}
+
+#flight_plane {
+	margin-right:-50px;
+	display: flex;
+	justify-content: start;
+	width: 11vw;
+}
+
+.middle_group {
+	width: 45%;
+	display: flex;
+	align-items: center;
+	gap: 1vw;
+}
+
+.plane-price {
+	height: 5vh;
+	display: flex;
+	align-items: center;
+	font-size: 1vw;
+	position: relative;
+}
+
+.search2_space {
+	width: 20vw;
+}
+
+.search2_flight {
+	width: 60%;
+	height: 20vh;
+	background-color: #fff;
+	border-radius: 20px;
+	margin-top: 5vh;
+	margin-left: 20%;
+	display: flex;
+}
+
+.search2_flight_left {
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+	padding-left: 10%;
+}
+
+.search2_flight_right {
+	display: flex;
+	flex-direction: column;
+	padding-top: 7%;
+	padding-left: 0%;
+	width: 20%;
+	font-size: 20px;
+}
+
+.search2_flight_right button {
+	margin-left: 10%;
+	margin-top: 10%;
+	width: 50%;
+	background-color: brown;
+	color: white;
+}
+
+.search2_go {
+	height: 50%;
+	display: flex;
+}
+
+.search2_go_airport {
+	padding: 5%;
+	font-size: 20px;
+}
+
+.search2_start {
+	display: flex;
+	flex-direction: column;
+	font-size: 20px;
+	padding-top: 2.5%;
+	text-align: center;
+}
+
+.search2_end {
+	display: flex;
+	flex-direction: column;
+	font-size: 20px;
+	padding-top: 2.5%;
+	text-align: center;
+}
+
+.search2_back {
+	height: 50%;
+	display: flex;
+}
+
+.search2_back_airport {
+	padding: 5%;
+	font-size: 20px;
+}
+
+.selected-range {
+	background-color: lightblue;
+	color: white;
+}
+
+.section_des_start {
+	font-size:24px;
+	margin-bottom:20px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	background-color:black;
+	color:#fff;
+	width:12.98vw;
+	margin-left:-20px;
+	margin-top:-20px;
+	padding:15px 0;
+}
+
+.card2_airline {
+	font-size:24px;
+	margin-bottom:20px;
+}
+
+.card2_duration {
+	margin-top:20px;
+	font-size:18px;
+}
+
+.card2_price {
+	margin-top:20px;
+	font-size:18px;
+	margin-bottom:20px;
+}
+
+.choice-card2{
+	font-weight:600;
+	background-color: #ddd;
+	color:#222;
+	padding:20px;
+	border-radius: 10px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	text-align:center;
+	width: 13vw;
+	height:auto;
+	margin-left: 4vw;
+	margin-top: 2vh;
+	transition: transform 0.3s ease;
+}
+
+.choice-card3{
+	font-weight:600;
+	background-color: #ddd;
+	color:#222;
+	padding:20px;
+	border-radius: 10px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	text-align:center;
+	width: 13vw;
+	height:auto;
+	transition: transform 0.3s ease;
+}
+
+.choice-card:hover{
+	transform: scale(1.01);
+	background-color: #f8b600;
+}
+
+.choice-card2:hover{
+	transform: scale(1.01);
+	background-color:#f8b600;
+}
+
+.close-btn {
+	background-color: #f8b600;
+	color: white;
+	border: none;
+	padding: 8px 15px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+}
+
+.close-btn.hovered {
+	background-color: #222;
+}
+
+.arrow-text-up,.arrow-text-down {
+	text-align: center;
+	align-items:center;
+	font-size: 1vw;
+	gap: 1vh;
+}
+
+.arrow {
+	height: 8vh;
+	margin: 0px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.arrow span {
+	padding-right: 1.5vw;
+	font-size: 1vw;
+}
+
+.arrow img {
+	height: 2.8vh;
+	width: 10vw;
+	margin: 0px 0;
+}
+
+#flight_takeoff{
+	margin:1.5vh 0 1.5vh 0;
+	width:2vw;
+	height:4vh;
+}
+
+#flight_takeoff3{
+	margin:1vh 0 1vh 0;
+	width:2vw;
+	height:4vh;
+}
+
+/* Modal Background */
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed;
+	z-index: 1000; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+	background-color: #fefefe;
+	margin: 10% auto; /* 10% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%; /* Could be more or less, depending on screen size */
+	max-width: 700px;
+	border-radius: 8px;
+	position: relative;
+	display:flex;
+	align-items: center;
+}
+
+.modal-title{
+	display:flex;
+	align-items: center;
+	margin-bottom:1vh;
+}
+
+.modal-title h2 {
+	display: flex;
+	margin-top:1vh;
+	margin-bottom:0.5vh;
+}
+
+#confirmReturn{
+	width:8vw;
+	height:5vh;
+	cursor: pointer;
+	border:none;
+	padding:2.5px;
+	background-color: #f8b600;
+	border-radius:6px;
+	font-weight:600;
+	font-size:1vw;
+	transition: transform 0.3s ease; 
+}
+
+#confirmReturn:hover{
+	background-color: black;
+	color:#fff;
+}
+
+#goFlight, #returnFlight {
+	margin-bottom: 20px;
+}
+
+#confirmButton {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+#confirmButton:hover {
+	background-color: #45a049;
+}
+
+.modalFlightInfo {
+	display: flex;
+	align-items:center;
+	justify-content:center;
+	gap:2vw;
+}
+
+/* 滑塊容器 */
+.noUi-target {
+	width: 80%;
+	height: 1px;
+	background-color: #ddd;
+	/* 軌道背景色 */
+	border-radius: 10px;
+	position: relative;
+	margin: 20px 0;
+}
+
+.noUi-base {
+	background: #ddd; /* 滑軌的背景顏色 */
+	height: 1px; /* 與 noUi-target 的高度一致 */
+	border-radius: 5px; /* 可選，為滑軌添加圓角 */
+}
+
+/* 已選部分的連接 */
+.noUi-connect {
+	background-color: #3498db !important;
+	/* 藍色連接部分 */
+	height: 100%;
+}
+
+/* 滑塊的把手 */
+.noUi-handle {
+	background-color: #2ecc71 !important;
+	/* 綠色滑塊把手 */
+	border-radius: 50% !important;
+	width: 15px !important;
+	height: 15px !important;
+	top: 0px;
+	/* 把手定位到滑塊中心 */
+	cursor: pointer;
+	transform: translate(-60%, 15%);
+}
+
+/* 滑塊被聚焦時的效果 */
+.noUi-handle:focus {
+	outline: none;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.noUi-handle.noUi-handle-lower::before, .noUi-handle.noUi-handle-lower::after
+	{
+	display: none; /* 完全隱藏這個元素 */
+}
+
+/* 顯示滑塊的當前值 */
+.slider-value {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+}

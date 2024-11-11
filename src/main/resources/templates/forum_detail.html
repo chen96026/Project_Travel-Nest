@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-TW" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Nest</title>
+    <link rel="stylesheet" href="/css/forum_detail.css">
+    <link th:replace="fragments/new_source :: head"></link>
+    <style>
+    	#header {
+			background-color: rgba(34, 34, 34, 0.9);
+	
+		}
+		.main-menu {
+  			background: transparent;	
+		}
+    </style>
+</head>
+<body class="forum_body">
+	<div th:replace="fragments/new_header :: header"></div>
+    <main class="forum_main">
+        <div class="forum_place">
+            <p>
+                <a th:href="@{/forum(country=${post.post.country})}" th:text="${post.post.country}"></a>
+                <span></span>
+                <a th:href="@{/forum(country=${post.post.country}, city=${post.post.city})}" th:text="${post.post.city}" class="forum_area"></a>
+            </p>
+        </div>
+        <div>
+            <div class="forum_view">
+                <button class="forum_btnLast" id="forum_lastImg"></button>
+                <div class="forum_photo">
+                	<img th:each="image : ${post.imageURL}" th:src="${image}" class="forum_photoImg">
+                </div>
+                <button class="forum_btnNext" id="forum_nextImg"></button>
+            </div>
+            <div class="forum_photos">
+                <img th:each="image : ${post.imageURL}" th:src="${image}" class="forum_smallPhoto">
+            </div>
+        </div>
+        <article>
+            <div class="forum_detail_stars">
+                <!-- 星星 -->
+				<span 
+                	th:each="i : ${#numbers.sequence(0, 4)}" 
+          			th:class="${i < post.post.rate ? 'forum_d_star forum_d_starFill' : 'forum_d_star'}">
+          		</span>
+            </div>
+            <div class="forum_detail_info">
+                <div class="forum_detail_title">
+                    <h1 th:text="${post.post.mainTitle}"></h1>
+                    <div>
+                        <h2 th:if="${post.post.subTitle != ''}" th:text="${post.post.subTitle}"></h2>
+                        <h3>
+                        	<span 
+                        		th:if="${(post.post.startDate != null) and (post.post.endDate != null)}"
+                        		th:text="${post.post.startDate} + ' ~ ' + ${post.post.endDate}">
+                        	</span>
+                        	<span 
+                        		th:if="${(post.post.startDate != null) and (post.post.endDate == null)}"
+                        		th:text="${post.post.startDate} + ' ~ '">
+                        	</span>
+                        	<span 
+                        		th:if="${(post.post.startDate == null) and (post.post.endDate != null)}"
+                        		th:text="' ~ ' + ${post.post.endDate}">
+                        	</span>
+                        </h3>
+                    </div>
+                </div>
+                <div class="forum_authorInfo">
+                    <img th:src="${post.userNameIconDTO.iconURL}" alt="author_icon">
+                    <p th:text="${post.userNameIconDTO.username}"></p>
+                </div>
+            </div>
+            <div class="forum_detail_body">
+                <p th:utext="${post.post.content}"></p>
+                <a th:each="tag : ${tags}" th:href="@{/forum(key=${tag})}" th:text="'#' + ${tag}"></a>
+                <p th:text="'發布於　' + ${post.createdDate}" class="forum_detail_date"></p>
+            </div>
+        </article>
+        <div class="forum_detail_btns">
+            <button th:data-like="${like}" th:id="${login ? 'forum_detail_like' : 'forum_detail_login'}" th:class="${like ? 'forum_detail_checkBtn forum_d_like_checked' : 'forum_detail_checkBtn forum_d_like_unchecked'}"></button>
+            <span th:text="${post.countLikes}" id="forum_detail_countLike" class="forum_d_countLike forum_d_btnsMargin"></span>
+            <button th:data-bookmark="${bookmark}" id="forum_detail_bookmark" th:if=${login} th:class="${bookmark ? 'forum_detail_checkBtn forum_d_bookmark_checked forum_d_btnsMargin' : 'forum_detail_checkBtn forum_d_bookmark_unchecked forum_d_btnsMargin'}"></button>
+            <div th:if="${edit}" class="forum_detail_btnsForAuthor">
+	            <a th:href="@{/forum/edit(id=${post.post.id})}" class="forum_detail_checkBtn forum_d_edit forum_d_showBtn forum_d_btnsMargin"></a>
+	            <button id="forum_detail_delete" class="forum_detail_checkBtn forum_d_delete forum_d_btnsMargin"></button>
+            </div>
+            <button th:data-report="${report}" id="forum_detail_report" th:if=${login} class="forum_detail_checkBtn forum_d_report"></button>
+        </div>
+    </main>
+    <div th:replace="fragments/new_footer :: footer"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/js/forum/forum_carousel.js"></script>
+    <script src="/js/forum/forum_detailFetch.js"></script>
+</body>
+</html>
